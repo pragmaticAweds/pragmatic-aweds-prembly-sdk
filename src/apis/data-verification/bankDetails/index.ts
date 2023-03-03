@@ -11,7 +11,7 @@ export class getBankDatas extends Base {
     versionUrl?: string
   ): Promise<BankCodesProps> {
     const endPointUrl = `${versionUrl ? versionUrl : ""}${endpoint}`;
-    return this.invoke(endPointUrl);
+    return this.invoke(endpoint);
   }
 
   verifyAdvAcctV2(
