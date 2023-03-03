@@ -10,7 +10,7 @@ export class getBankDatas extends Base {
     endpoint = "bank_code",
     versionUrl?: string
   ): Promise<BankCodesProps> {
-    const endPointUrl = `${versionUrl ? versionUrl : ""}/${endpoint}`;
+    const endPointUrl = `${versionUrl ? versionUrl : ""}${endpoint}`;
     return this.invoke(endPointUrl);
   }
 
