@@ -1,5 +1,3 @@
-// import { getBankDatas } from "./apis/data-verification/bankDetails";
-// import { Base } from "./base";
 import { applyMixins } from "./utils";
 import { BankServices } from "./apis/data-verification/bankDetails";
 
