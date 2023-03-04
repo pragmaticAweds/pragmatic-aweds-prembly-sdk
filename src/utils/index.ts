@@ -23,8 +23,10 @@ async function processApi(apiPromise: () => Promise<AxiosPromise>) {
   try {
     const res = await apiPromise();
 
+    console.log({ res });
+
     // Check the API response status code for success (status code 200).
-    if (res.data.status === 200) {
+    if (res.data.status === true) {
       return res.data.data;
     } else {
       // If the response status code is not 200, throw an SDKError.
@@ -36,7 +38,7 @@ async function processApi(apiPromise: () => Promise<AxiosPromise>) {
   } catch (err) {
     if (err instanceof SDKError) {
       // If the error is already an SDKError, re-throw it.
-      throw err;
+      throw err.message;
     } else if (axios.isAxiosError(err)) {
       // If the error is an AxiosError, manage it as an axios error and throw an SDKError.
       throw new SDKError({
