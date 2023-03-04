@@ -1,5 +1,11 @@
 # prembly-verify-sdk
 
+## 0.0.4
+
+### Patch Changes
+
+- Change structure
+
 ## 0.0.3
 
 ### Patch Changes
