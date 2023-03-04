@@ -19,12 +19,10 @@ export abstract class Base {
 
   protected invoke<T>(
     endpoint: string,
-    versionUrl?: string,
+    // versionUrl?: string,
     options?: RequestInit
   ): Promise<T> {
-    const url = `${this.baseUrl}/${
-      versionUrl ? versionUrl : this.appendUrl
-    }/${endpoint}`;
+    const url = `${this.baseUrl}/${this.appendUrl}/${endpoint}`;
     const headers = {
       "Content-Type": "application/json",
       "api-key": this.apiKey,

@@ -19,7 +19,7 @@ export class getBankDatas extends Base {
   ): Promise<VerifyAdvBankAcctV2Props> {
     const endPointUrl = "bank_account/advance";
 
-    return this.invoke(endPointUrl, "", {
+    return this.invoke(endPointUrl, {
       method: "POST",
       body: JSON.stringify(params),
     });
