@@ -22,7 +22,9 @@ export abstract class Base {
     versionUrl?: string,
     options?: RequestInit
   ): Promise<T> {
-    const url = `${this.baseUrl}/${!versionUrl ?? this.appendUrl}/${endpoint}`;
+    const url = `${this.baseUrl}/${
+      versionUrl ? versionUrl : this.appendUrl
+    }/${endpoint}`;
     const headers = {
       "Content-Type": "application/json",
       "api-key": this.apiKey,
@@ -36,7 +38,7 @@ export abstract class Base {
       credentials: "same-origin",
     };
 
-    return axios.get(url, config).then((res: AxiosResponse) => {
+    return axios(url, config).then((res: AxiosResponse) => {
       if (res.status === 200) {
         return res.data;
       } else {
