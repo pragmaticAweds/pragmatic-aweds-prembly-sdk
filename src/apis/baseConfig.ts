@@ -1,7 +1,10 @@
-import { Config } from "../types/configTypes";
-import axios, { AxiosResponse } from "axios";
-
-const abortController = new AbortController();
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { processApi } from "../utils";
+import {
+  PREMBLY_SDK_BASEURL,
+  PREMBLY_SDK_TEST_APIKEY,
+  PREMBLY_SDK_TEST_BASE_URL,
+} from "../utils/consts";
 
 // export abstract class Base {
 //   private apiKey: string;
@@ -43,3 +46,42 @@ const abortController = new AbortController();
 //     });
 //   }
 // }
+
+const envUrl = {
+  test: {
+    baseUrl: PREMBLY_SDK_TEST_BASE_URL,
+    apiKey: PREMBLY_SDK_TEST_APIKEY,
+    appId: PREMBLY_SDK_TEST_APIKEY,
+  },
+  live: PREMBLY_SDK_BASEURL,
+};
+
+export abstract class BaseSDK {
+  protected apiClient: AxiosInstance;
+  readonly apiKey: string;
+  readonly appId: string;
+
+  constructor(apiKey: string, appId: string, env: "test" | "live" = "live") {
+    this.apiKey = apiKey;
+    this.appId = appId;
+
+    this.apiClient = axios.create({
+      baseURL: env === "live" ? envUrl[env] : envUrl[env].baseUrl,
+      headers: {
+        "x-api-key": env === "live" ? this.apiKey : envUrl[env].apiKey,
+        "x-app-id": env === "live" ? this.appId : envUrl[env].appId,
+      },
+    });
+  }
+
+  protected async post<T>(
+    endpoint: string,
+    data?: Record<string, string | number>
+  ) {
+    return await processApi(() => this.apiClient.post(endpoint, data));
+  }
+
+  protected async get(endpoint: string) {
+    return await processApi(() => this.apiClient.get(endpoint));
+  }
+}
