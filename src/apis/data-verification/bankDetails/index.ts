@@ -39,6 +39,6 @@ export class BankServices extends BaseSDK {
   }
 
   verifyAdvAcctV2(datas: VerifyAdvBankAcctV2ParamsProps) {
-    return this.post(VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT, datas);
+    return this.post(VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT, datas as {});
   }
 }
