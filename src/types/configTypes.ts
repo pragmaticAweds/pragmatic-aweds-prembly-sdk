@@ -1,6 +1,6 @@
 export type Config = {
-  baseUrl?: string;
-  appendUrl?: string;
   apiKey: string;
   appId: string;
+  baseUrl?: string;
+  appendUrl?: string;
 };

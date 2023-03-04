@@ -23,6 +23,7 @@ export abstract class Base {
     options?: RequestInit
   ): Promise<T> {
     const url = `${this.baseUrl}/${this.appendUrl}/${endpoint}`;
+    console.log({ url });
     const headers = {
       "Content-Type": "application/json",
       "api-key": this.apiKey,
