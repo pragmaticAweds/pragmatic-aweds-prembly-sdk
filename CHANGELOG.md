@@ -1,5 +1,11 @@
 # prembly-verify-sdk
 
+## 0.0.5
+
+### Patch Changes
+
+- Fix api key
+
 ## 0.0.4
 
 ### Patch Changes
