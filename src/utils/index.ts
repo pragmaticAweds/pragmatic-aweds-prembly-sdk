@@ -40,8 +40,10 @@ async function processApi(apiPromise: () => Promise<AxiosPromise>) {
     } else if (axios.isAxiosError(err)) {
       // If the error is an AxiosError, manage it as an axios error and throw an SDKError.
       throw new SDKError({
-        message: "An AxiosError occurred",
+        message: `An AxiosError occurred: ${err.response?.statusText}`,
+        code: err.response?.status,
         error: err.message,
+        errorDetail: err.response?.data?.detail,
       });
     } else {
       // If the error is not an SDKError or AxiosError, process it and throw it as an SDKError.
@@ -56,11 +58,20 @@ async function processApi(apiPromise: () => Promise<AxiosPromise>) {
 export class SDKError extends Error {
   code?: number; // optional property to hold error code
   error?: any; // optional property to hold the original error
+  errorDetail?: unknown; // property to display error details
 
-  constructor(params: { code?: number; message?: string; error?: any }) {
+  constructor(
+    params: Partial<{
+      code: number;
+      message: string;
+      error: any;
+      errorDetail: unknown;
+    }>
+  ) {
     super(params.message); // call the Error class constructor with the message
 
     this.code = params.code; // assign error code if provided
     this.error = params.error; // assign original error if provided
+    this.errorDetail = params.errorDetail; // assign error details if available
   }
 }

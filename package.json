@@ -9,6 +9,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc",
+    "rebuild": "rm -rf dist && yarn build",
     "dev": "vitest",
     "test": "vitest run",
     "ci": "yarn run lint && yarn run test && yarn run build",
