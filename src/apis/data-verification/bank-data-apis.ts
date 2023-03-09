@@ -1,32 +1,32 @@
-import { VerifyBankAcctParams, VerifyBvnWithFaceParams } from "@/src/types";
+import { VerifyBankAcctParams, VerifyBvnWithFaceParams } from '@/src/types';
 import {
   GET_ALL_CODES_ENDPOINT,
   VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT,
   VERIFY_BVN_ENDPOINT,
   VERIFY_BVN_ADVANCE_VERSION_2_ENDPOINT,
   VERIFY_BVN_WITH_IMAGE_ENDPOINT,
-} from "@/src/utils/consts";
+} from '@/src/utils/consts';
 
-import { BaseSDK } from "../base-config";
+import { BaseSDK } from '../base-config';
 
 export class BankDatasVerification extends BaseSDK {
-  getAllBankCodes() {
-    return this.get(GET_ALL_CODES_ENDPOINT);
+  async getAllBankCodes() {
+    return await this.get(GET_ALL_CODES_ENDPOINT);
   }
 
-  verifyBankAcctFull(datas: VerifyBankAcctParams) {
-    return this.post(VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT, datas as {});
+  async verifyBankAcctFull(datas: VerifyBankAcctParams) {
+    return await this.post(VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT, datas);
   }
 
-  verifyBvnWithFace(datas: VerifyBvnWithFaceParams) {
-    return this.post(VERIFY_BVN_WITH_IMAGE_ENDPOINT, datas as {});
+  async verifyBvnWithFace(datas: VerifyBvnWithFaceParams) {
+    return await this.post(VERIFY_BVN_WITH_IMAGE_ENDPOINT, datas);
   }
 
-  verifyBvn(datas: Pick<VerifyBvnWithFaceParams, "number">) {
-    return this.post(VERIFY_BVN_ENDPOINT, datas as {});
+  async verifyBvn(datas: Pick<VerifyBvnWithFaceParams, 'number'>) {
+    return await this.post(VERIFY_BVN_ENDPOINT, datas);
   }
 
-  verifyBvnFull(datas: Pick<VerifyBvnWithFaceParams, "number">) {
-    return this.post(VERIFY_BVN_ADVANCE_VERSION_2_ENDPOINT, datas as {});
+  async verifyBvnFull(datas: Pick<VerifyBvnWithFaceParams, 'number'>) {
+    return await this.post(VERIFY_BVN_ADVANCE_VERSION_2_ENDPOINT, datas);
   }
 }

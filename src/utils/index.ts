@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from "axios";
+import axios, { AxiosPromise } from 'axios';
 
 export function applyMixins(derivedCtor: any, constructors: any[]) {
   constructors.forEach((baseCtor) => {
@@ -48,7 +48,7 @@ async function processApi(apiPromise: () => Promise<AxiosPromise>) {
     } else {
       // If the error is not an SDKError or AxiosError, process it and throw it as an SDKError.
       throw new SDKError({
-        message: "An unknown error occurred",
+        message: 'An unknown error occurred',
         error: err,
       });
     }
@@ -74,4 +74,24 @@ export class SDKError extends Error {
     this.error = params.error; // assign original error if provided
     this.errorDetail = params.errorDetail; // assign error details if available
   }
+}
+
+/**
+ * Sanitizes input fields by removing all characters except numbers, letters, and underscores
+ * @param obj - the object whose values will be sanitized
+ * @returns - the sanitized object
+ */
+export function sanitizeInputFields<T extends Record<string, string>>(
+  obj: T
+): Record<keyof T, string> {
+  const sanitizedObj = {} as Record<keyof T, string>;
+
+  for (const [key, value] of Object.entries(obj)) {
+    sanitizedObj[key as keyof T] = value.replace(
+      /[^a-zA-Z0-9_]/g,
+      ''
+    ) as T[keyof T];
+  }
+
+  return sanitizedObj;
 }

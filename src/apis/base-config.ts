@@ -1,9 +1,9 @@
-import axios, { AxiosInstance } from "axios";
-import { processApi } from "../utils";
+import axios, { AxiosInstance } from 'axios';
+import { processApi, sanitizeInputFields } from '../utils';
 import {
   PREMBLY_SDK_BASEURL,
   PREMBLY_SDK_TEST_BASE_URL,
-} from "../utils/consts";
+} from '../utils/consts';
 
 const envUrl = {
   test: PREMBLY_SDK_TEST_BASE_URL,
@@ -45,10 +45,10 @@ export abstract class BaseSDK {
      * @type {AxiosInstance}
      */
     this.apiClient = axios.create({
-      baseURL: config.env === "live" ? envUrl[config.env] : envUrl["test"],
+      baseURL: config.env === 'live' ? envUrl[config.env] : envUrl['test'],
       headers: {
-        "x-api-key": this.apiKey,
-        "x-app-id": this.appId,
+        'x-api-key': this.apiKey,
+        'x-app-id': this.appId,
       },
     });
   }
@@ -60,10 +60,7 @@ export abstract class BaseSDK {
    * @returns {Promise<T>} - The API response
    * @template T
    */
-  protected async post(
-    endpoint: string,
-    data?: Record<string, string | number>
-  ) {
+  protected async post<T>(endpoint: string, data: T): Promise<T> {
     return await processApi(() => this.apiClient.post(endpoint, data));
   }
 

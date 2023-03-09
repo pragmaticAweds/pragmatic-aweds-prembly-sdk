@@ -1,16 +1,16 @@
-export const PREMBLY_SDK_BASEURL = "https://api.myidentitypay.com";
+export const PREMBLY_SDK_BASEURL = 'https://api.myidentitypay.com';
 
-export const PREMBLY_SDK_TEST_BASE_URL = "https://sandbox.myidentitypass.com";
+export const PREMBLY_SDK_TEST_BASE_URL = 'https://sandbox.myidentitypass.com';
 
-export const PREMBLY_SDK_TEST_APIKEY = "https://sandbox.myidentitypass.com";
+export const PREMBLY_SDK_TEST_APIKEY = 'https://sandbox.myidentitypass.com';
 
-export const PREMBLY_SDK_TEST_APP_ID = "https://sandbox.myidentitypass.com";
+export const PREMBLY_SDK_TEST_APP_ID = 'https://sandbox.myidentitypass.com';
 
 export const PREMBLY_SDK_API_VERSION_1 =
-  "api/v1/biometrics/merchant/data/verification";
+  'api/v1/biometrics/merchant/data/verification';
 
 export const PREMBLY_SDK_API_VERSION_2 =
-  "api/v2/biometrics/merchant/data/verification";
+  'api/v2/biometrics/merchant/data/verification';
 
 export const GET_ALL_CODES_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_code`;
 
@@ -25,3 +25,15 @@ export const VERIFY_BVN_WITH_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn
 export const VERIFY_CAC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/cac`;
 
 export const VERIFY_CAC_ADVANCE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/cac/advance`;
+
+export const VERIFY_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau`;
+
+export const VERIFY_DRIVERS_LICENSE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license`;
+
+export const VERIFY_DRIVERS_LICENSE_BASIC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license/basic`;
+
+export const VERIFY_DRIVERS_LICENSE_FULL_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license/advance`;
+
+export const VERIFY_DRIVERS_LICENSE_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license/image`;
+
+export const VERIFY_DRIVERS_LICENSE_FACE_ID_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license_with_face`;
