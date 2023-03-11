@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { IndexSignatureProps } from '../types';
 import { processApi, sanitizeInputFields } from '../utils';
 import {
   PREMBLY_SDK_BASEURL,
@@ -47,8 +48,8 @@ export abstract class BaseSDK {
     this.apiClient = axios.create({
       baseURL: config.env === 'live' ? envUrl[config.env] : envUrl['test'],
       headers: {
+        'app-id': this.appId,
         'x-api-key': this.apiKey,
-        'x-app-id': this.appId,
       },
     });
   }
@@ -61,7 +62,8 @@ export abstract class BaseSDK {
    * @template T
    */
   protected async post<T>(endpoint: string, data: T): Promise<T> {
-    return await processApi(() => this.apiClient.post(endpoint, data));
+    const sanitizedData = sanitizeInputFields(data as IndexSignatureProps);
+    return await processApi(() => this.apiClient.post(endpoint, sanitizedData));
   }
 
   /**

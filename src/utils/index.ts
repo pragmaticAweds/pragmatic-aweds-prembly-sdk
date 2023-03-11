@@ -76,22 +76,33 @@ export class SDKError extends Error {
   }
 }
 
-/**
- * Sanitizes input fields by removing all characters except numbers, letters, and underscores
- * @param obj - the object whose values will be sanitized
- * @returns - the sanitized object
- */
-export function sanitizeInputFields<T extends Record<string, string>>(
-  obj: T
-): Record<keyof T, string> {
-  const sanitizedObj = {} as Record<keyof T, string>;
+export function sanitizeInputFields<
+  T extends { [key: string]: string | number }
+>(obj: T): T {
+  // Create an empty object with the same type as the input object
+  const sanitizedObj = {} as T;
 
-  for (const [key, value] of Object.entries(obj)) {
-    sanitizedObj[key as keyof T] = value.replace(
-      /[^a-zA-Z0-9_]/g,
-      ''
-    ) as T[keyof T];
+  // Iterate over each key in the input object
+  for (const key in obj) {
+    const value = obj[key];
+    // If the value is a string, sanitize it and assign it to the sanitized object
+
+    // If the value is a image, assign it to the sanitized object without modifying it
+    if (typeof value === 'string' && key === 'image') {
+      sanitizedObj[key] = value as T[typeof key];
+      // If the value is a number, assign it to the sanitized object without modifying it
+    } else if (typeof value === 'number') {
+      sanitizedObj[key] = value as T[typeof key];
+      // The 'as T[typeof key]' part of this line is a type assertion that tells TypeScript that the type of the value is the same as the type of the property.
+    } else if (typeof value === 'string' && key !== 'image') {
+      // The following line sanitizes the string by removing all characters that are not numbers, letters, underscores, or dash
+      sanitizedObj[key] = value.replace(/[^0-9a-zA-Z_-]/g, '') as T[typeof key];
+      // The 'as T[typeof key]' part of this line is a type assertion that tells TypeScript that the type of the sanitized value is the same as the type of the property.
+    } else {
+      // If the value is of an unsupported type, throw an error
+      throw new Error(`Unsupported value type: ${value}`);
+    }
   }
-
+  // Return the sanitized object
   return sanitizedObj;
 }
