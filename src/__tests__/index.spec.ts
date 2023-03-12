@@ -1,4 +1,5 @@
 import PremblySdk from '..';
+import { NIN_BASE_64_TEST_IMAGE } from '../utils/consts';
 
 describe('Prembly SDK Test', () => {
   const config = {
@@ -129,6 +130,21 @@ describe('Prembly SDK Test', () => {
         dob: '1999-12-21',
         image:
           'https://res.cloudinary.com/dh3i1wodq/image/upload/v1675417496/cbimage_3_drqdoc.jpg',
+      });
+      expect(res).toHaveProperty('status', true);
+      expect(res).toHaveProperty('response_code', '00');
+    });
+    it('verify nin with image', async () => {
+      const res = await premblyClient.verifyNinWithImage({
+        image:
+          'https://asset.cloudinary.com/dh3i1wodq/089761016db6dab086ca450bf2465898',
+      });
+      expect(res).toHaveProperty('status', true);
+      expect(res).toHaveProperty('response_code', '00');
+    });
+    it('verify nin with base 64 image', async () => {
+      const res = await premblyClient.verifyNinWithImage({
+        image: NIN_BASE_64_TEST_IMAGE,
       });
       expect(res).toHaveProperty('status', true);
       expect(res).toHaveProperty('response_code', '00');

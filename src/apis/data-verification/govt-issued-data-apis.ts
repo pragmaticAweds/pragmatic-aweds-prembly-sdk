@@ -12,6 +12,7 @@ import {
   VERIFY_DRIVERS_LICENSE_FACE_ID_ENDPOINT,
   VERIFY_DRIVERS_LICENSE_FULL_ENDPOINT,
   VERIFY_DRIVERS_LICENSE_IMAGE_ENDPOINT,
+  VERIFY_NIN_WITH_IMAGE_ENDPOINT,
 } from '@/src/utils/consts';
 import { BaseSDK } from '../base-config';
 
@@ -44,5 +45,9 @@ export class GovtDatasVerification extends BaseSDK {
     datas: Omit<verifyDriversLicenseParams, 'first_name' | 'last_name'>
   ) {
     return this.post(VERIFY_DRIVERS_LICENSE_FACE_ID_ENDPOINT, datas);
+  }
+
+  verifyNinWithImage(datas: Pick<verifyDriversLicenseParams, 'image'>) {
+    return this.post(VERIFY_NIN_WITH_IMAGE_ENDPOINT, datas);
   }
 }

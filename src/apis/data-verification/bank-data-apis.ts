@@ -1,4 +1,4 @@
-import { VerifyBankAcctParams, VerifyBvnWithFaceParams } from '@/src/types';
+import { IndexSignatureProps, VerifyBankAcctParams } from '@/src/types';
 import {
   GET_ALL_CODES_ENDPOINT,
   VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT,
@@ -18,15 +18,17 @@ export class BankDatasVerification extends BaseSDK {
     return await this.post(VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT, datas);
   }
 
-  async verifyBvnWithFace(datas: VerifyBvnWithFaceParams) {
+  async verifyBvnWithFace(
+    datas: Pick<IndexSignatureProps, 'image' | 'number'>
+  ) {
     return await this.post(VERIFY_BVN_WITH_IMAGE_ENDPOINT, datas);
   }
 
-  async verifyBvn(datas: Pick<VerifyBvnWithFaceParams, 'number'>) {
+  async verifyBvn(datas: Pick<IndexSignatureProps, 'number'>) {
     return await this.post(VERIFY_BVN_ENDPOINT, datas);
   }
 
-  async verifyBvnFull(datas: Pick<VerifyBvnWithFaceParams, 'number'>) {
+  async verifyBvnFull(datas: Pick<IndexSignatureProps, 'number'>) {
     return await this.post(VERIFY_BVN_ADVANCE_VERSION_2_ENDPOINT, datas);
   }
 }
