@@ -1,5 +1,5 @@
-import axios, { AxiosInstance } from 'axios';
-import { IndexSignatureProps } from '../types';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { IndexSignatureBaseParams } from '../types';
 import { processApi, sanitizeInputFields } from '../utils';
 import {
   PREMBLY_SDK_BASEURL,
@@ -61,17 +61,22 @@ export abstract class BaseSDK {
    * @returns {Promise<T>} - The API response
    * @template T
    */
-  protected async post<T>(endpoint: string, data: T): Promise<T> {
-    const sanitizedData = sanitizeInputFields(data as IndexSignatureProps);
-    return await processApi(() => this.apiClient.post(endpoint, sanitizedData));
+  protected async post<T>(
+    endpoint: string,
+    data: T
+  ): Promise<AxiosResponse<T>> {
+    const sanitizedData = sanitizeInputFields(data as IndexSignatureBaseParams);
+    return await processApi<T>(() =>
+      this.apiClient.post(endpoint, sanitizedData)
+    );
   }
 
   /**
    * Makes a GET request to the API
    * @param {string} endpoint - The API endpoint to request
-   * @returns {Promise<any>} - The API response
+   * @returns {Promise<T>} - The API response
    */
-  protected async get(endpoint: string) {
+  protected async get(endpoint: string): Promise<AxiosResponse> {
     return await processApi(() => this.apiClient.get(endpoint));
   }
 }

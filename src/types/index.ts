@@ -1,13 +1,14 @@
-export interface IndexSignatureProps {
+export interface IndexSignatureBaseParams {
   [key: string]: string | number;
   number: number | string;
   image: string;
   first_name: string;
   last_name: string;
+  dob: string;
 }
 
 export interface VerifyBankAcctParams
-  extends Pick<IndexSignatureProps, 'number'> {
+  extends Pick<IndexSignatureBaseParams, 'number'> {
   bank_code: number;
 }
 
@@ -20,10 +21,58 @@ export interface VerifyCaC {
 }
 
 export interface verifyCreditBureauParams
-  extends Pick<IndexSignatureProps, 'first_name'> {
+  extends Pick<IndexSignatureBaseParams, 'first_name'> {
   phone_number: string;
 }
 
-export interface verifyDriversLicenseParams extends IndexSignatureProps {
-  dob: string;
+export interface verifyDriversLicenseParams extends IndexSignatureBaseParams {}
+
+export interface NinParams extends Pick<IndexSignatureBaseParams, 'number'> {
+  number_nin: number;
+}
+
+export interface TINParams extends Pick<IndexSignatureBaseParams, 'number'> {
+  channel: string;
+}
+
+export interface VehicleParams {
+  vehicle_number: string;
+}
+
+export interface VotersCardParams
+  extends Pick<IndexSignatureBaseParams, 'number' | 'last_name'> {
+  state: string;
+}
+
+export interface VerifyBusUGParams {
+  customer_reference: string;
+  customer_name: string;
+  reservation_number: string;
+}
+
+export interface VerifyBusSAParams
+  extends Omit<VerifyBusUGParams, 'reservation_number'> {
+  reg_number: string;
+}
+
+export interface GhanaVotersCardParams
+  extends Pick<IndexSignatureBaseParams, 'number'> {
+  type: 'OLD' | 'MAIN';
+}
+
+export interface KenyaNationalIdentityParams
+  extends Pick<IndexSignatureBaseParams, 'dob' | 'number'> {
+  firstname: string;
+  lastname: string;
+  nationalid: string;
+  customer_name: string;
+  customer_reference: string;
+}
+
+export interface SierrLeoneDriversLicenseParams
+  extends Partial<Pick<IndexSignatureBaseParams, 'dob' | 'number'>> {
+  firstname?: string;
+  lastname?: string;
+  middlename?: string;
+  search_mode: string;
 }

@@ -1,13 +1,20 @@
 import { applyMixins } from './utils';
-import { BankDatasVerification } from './apis/data-verification/bank-data-apis';
-
 import { BaseSDK } from './apis/base-config';
-import { GovtDatasVerification } from './apis/data-verification/govt-issued-data-apis';
+import { NGBankDatasVerification } from './apis/data-verification/nigeria/bank-data-apis';
+import { NGGovtIssuedDatasVerification } from './apis/data-verification/nigeria/govt-issued-data-apis';
+import { GhanaDatasVerification } from './apis/data-verification/ghana';
 
 class PremblySdk extends BaseSDK {}
 
-interface PremblySdk extends BankDatasVerification, GovtDatasVerification {}
+interface PremblySdk
+  extends NGBankDatasVerification,
+    NGGovtIssuedDatasVerification,
+    GhanaDatasVerification {}
 
-applyMixins(PremblySdk, [BankDatasVerification, GovtDatasVerification]);
+applyMixins(PremblySdk, [
+  NGBankDatasVerification,
+  NGGovtIssuedDatasVerification,
+  GhanaDatasVerification,
+]);
 
 export default PremblySdk;

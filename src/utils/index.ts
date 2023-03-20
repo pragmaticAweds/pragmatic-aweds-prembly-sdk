@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from 'axios';
+import axios, { AxiosPromise, AxiosResponse } from 'axios';
 
 export function applyMixins(derivedCtor: any, constructors: any[]) {
   constructors.forEach((baseCtor) => {
@@ -19,13 +19,13 @@ export /**
  * @returns A Promise that resolves to the data returned by the API if successful, or throws a `SDKError` if the API call fails.
  */
 
-async function processApi(apiPromise: () => Promise<AxiosPromise>) {
+async function processApi<T>(apiPromise: () => Promise<AxiosPromise>) {
   try {
     const res = await apiPromise();
 
     // Check the API response status code for success (status code 200).
-    if (res.data.status === true) {
-      return res.data;
+    if (res.status === 200) {
+      return { status: res.status, data: res.data } as AxiosResponse<T, any>;
     } else {
       // If the response status code is not 200, throw an SDKError.
       throw new SDKError({
