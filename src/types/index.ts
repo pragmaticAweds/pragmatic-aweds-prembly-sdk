@@ -32,10 +32,10 @@ export interface NinParams extends Pick<IndexSignatureBaseParams, 'number'> {
 }
 
 export interface TINParams extends Pick<IndexSignatureBaseParams, 'number'> {
-  channel: string;
+  channel: 'TIN' | 'CAC' | 'Phone';
 }
 
-export interface VehicleParams {
+export interface VehiclePlateNo {
   vehicle_number: string;
 }
 
@@ -74,5 +74,5 @@ export interface SierrLeoneDriversLicenseParams
   firstname?: string;
   lastname?: string;
   middlename?: string;
-  search_mode: string;
+  search_mode: 'ID' | 'BIO';
 }

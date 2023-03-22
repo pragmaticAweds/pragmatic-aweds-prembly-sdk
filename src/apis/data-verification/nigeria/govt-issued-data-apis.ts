@@ -2,7 +2,7 @@ import {
   IndexSignatureBaseParams,
   NinParams,
   TINParams,
-  VehicleParams,
+  VehiclePlateNo,
   VerifyCaC,
   verifyCreditBureauParams,
   verifyDriversLicenseParams,
@@ -84,7 +84,7 @@ export class NGGovtIssuedDatasVerification extends BaseSDK {
   verifyNgTIN(datas: TINParams) {
     return this.post(VERIFY_TIN_ENDPOINT, datas);
   }
-  verifyNgVehicle(datas: VehicleParams) {
+  verifyNgVehicle(datas: VehiclePlateNo) {
     return this.post(VERIFY_VEHICLE_ENDPOINT, datas);
   }
   verifyNgVotersCard(datas: VotersCardParams) {
