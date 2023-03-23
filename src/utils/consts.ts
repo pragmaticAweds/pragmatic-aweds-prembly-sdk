@@ -26,6 +26,8 @@ export const VERIFY_CAC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/cac`;
 
 export const VERIFY_CAC_ADVANCE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/cac/advance`;
 
+export const VERIFY_INTL_PASSPORT_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/national_passport`;
+
 export const VERIFY_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau`;
 
 export const VERIFY_DRIVERS_LICENSE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license`;
