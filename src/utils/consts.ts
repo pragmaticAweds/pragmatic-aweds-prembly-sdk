@@ -28,6 +28,12 @@ export const VERIFY_CAC_ADVANCE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/cac/ad
 
 export const VERIFY_INTL_PASSPORT_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/national_passport`;
 
+export const VERIFY_INTL_PASSPORT_ASYNC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/national_passport/async`;
+
+export const VERIFY_INTL_PASSPORT_WITH_FACE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/national_passport_with_face`;
+
+export const VERIFY_INTL_PASSPORT_WITH_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/national_passport_image`;
+
 export const VERIFY_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau`;
 
 export const VERIFY_DRIVERS_LICENSE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license`;
