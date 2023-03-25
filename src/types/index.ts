@@ -55,12 +55,12 @@ export interface VerifyBusSAParams
   reg_number: string;
 }
 
-export interface GhanaVotersCardParams
+export interface GHVotersCardParams
   extends Pick<IndexSignatureBaseParams, 'number'> {
   type: 'OLD' | 'MAIN';
 }
 
-export interface KenyaNationalIdentityParams
+export interface KYNationalIdentityParams
   extends Pick<IndexSignatureBaseParams, 'dob' | 'number'> {
   firstname: string;
   lastname: string;
@@ -69,7 +69,7 @@ export interface KenyaNationalIdentityParams
   customer_reference: string;
 }
 
-export interface SierrLeoneDriversLicenseParams
+export interface SLDriversLicenseParams
   extends Partial<Pick<IndexSignatureBaseParams, 'dob' | 'number'>> {
   firstname?: string;
   lastname?: string;

@@ -7,7 +7,7 @@ import {
   VERIFY_VOTERS_CARD_GHANA_ENDPOINT,
 } from '@/src/utils/consts';
 import {
-  GhanaVotersCardParams,
+  GHVotersCardParams,
   IndexSignatureBaseParams,
   verifyDriversLicenseParams,
 } from '@/src/types';
@@ -19,7 +19,7 @@ export class GhanaDatasVerification extends BaseSDK {
 
   //These APis are not tested yet
 
-  verifyGhVotersCard(datas: GhanaVotersCardParams) {
+  verifyGhVotersCard(datas: GHVotersCardParams) {
     return this.post(VERIFY_VOTERS_CARD_GHANA_ENDPOINT, datas);
   }
 

@@ -1,4 +1,4 @@
-import { KenyaNationalIdentityParams, VerifyBusSAParams } from '@/src/types';
+import { KYNationalIdentityParams, VerifyBusSAParams } from '@/src/types';
 import {
   VERIFY_BUSINESS_SOUTH_AFRICA_ENDPOINT,
   VERIFY_NATIONAL_IDENTITY_SOUTH_AFRICA_ENDPOINT,
@@ -9,7 +9,7 @@ export class SouthAfricaDatasVerification extends BaseSDK {
   //These APi are not tested yet
   verifySaNationalIdentity(
     datas: Omit<
-      KenyaNationalIdentityParams,
+      KYNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
     >
   ) {
