@@ -1,4 +1,4 @@
-import { KYNationalIdentityParams, VerifyBusSAParams } from '@/src/types';
+import { KYNationalIdentityParams, BusSAParams } from '@/src/types';
 import {
   VERIFY_BUSINESS_SOUTH_AFRICA_ENDPOINT,
   VERIFY_NATIONAL_IDENTITY_SOUTH_AFRICA_ENDPOINT,
@@ -16,7 +16,7 @@ export class SouthAfricaDatasVerification extends BaseSDK {
     return this.post(VERIFY_NATIONAL_IDENTITY_SOUTH_AFRICA_ENDPOINT, datas);
   }
 
-  verifySaBusiness(datas: VerifyBusSAParams) {
+  verifySaBusiness(datas: BusSAParams) {
     return this.post(VERIFY_BUSINESS_SOUTH_AFRICA_ENDPOINT, datas);
   }
 }
