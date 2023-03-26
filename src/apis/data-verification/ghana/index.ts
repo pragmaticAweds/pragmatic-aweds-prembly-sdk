@@ -9,7 +9,7 @@ import {
 import {
   GHVotersCardParams,
   IndexSignatureBaseParams,
-  verifyDriversLicenseParams,
+  DriversLicenseParams,
 } from '@/src/types';
 
 export class GhanaDatasVerification extends BaseSDK {
@@ -23,9 +23,7 @@ export class GhanaDatasVerification extends BaseSDK {
     return this.post(VERIFY_VOTERS_CARD_GHANA_ENDPOINT, datas);
   }
 
-  verifyGhDriversLicense(
-    datas: Pick<verifyDriversLicenseParams, 'dob' | 'number'>
-  ) {
+  verifyGhDriversLicense(datas: Pick<DriversLicenseParams, 'dob' | 'number'>) {
     return this.post(VERIFY_DRIVERS_LICENSE_GHANA_ENDPOINT, datas);
   }
 

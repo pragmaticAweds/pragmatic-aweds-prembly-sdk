@@ -210,6 +210,28 @@ describe('Prembly SDK Test', () => {
       expect(res).toHaveProperty('status', 200);
       expect(res.data).toHaveProperty('response_code', '00');
     });
+    it('verify Nigeria voters card is working with image only but return with 01 for unverified data', async () => {
+      const res = await premblyClient.verifyNgVotersCardWithImg({
+        image: NIN_BASE_64_TEST_IMAGE,
+      });
+      expect(res).toHaveProperty('status', 200);
+    });
+    it('verify Nigeria stamp duty is working', async () => {
+      const res = await premblyClient.verifyNgStampDuty({
+        number: '2022-0000-1111-2222',
+        customer_name: 'Test Account',
+      });
+      expect(res).toHaveProperty('status', 200);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+    it('verify Nigeria International passport Sync is working', async () => {
+      const res = await premblyClient.verifyNgIntlPassportSync({
+        number: 'A00400000',
+        last_name: 'test',
+      });
+      expect(res).toHaveProperty('status', 200);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
   });
 
   describe('Verifying All Ghana APIs are working', () => {

@@ -77,7 +77,7 @@ export class SDKError extends Error {
 }
 
 export function sanitizeInputFields<
-  T extends { [key: string]: string | number }
+  T extends { [key: string]: string | number | undefined }
 >(obj: T): T {
   // Create an empty object with the same type as the input object
   const sanitizedObj = {} as T;
@@ -96,7 +96,10 @@ export function sanitizeInputFields<
       // The 'as T[typeof key]' part of this line is a type assertion that tells TypeScript that the type of the value is the same as the type of the property.
     } else if (typeof value === 'string' && key !== 'image') {
       // The following line sanitizes the string by removing all characters that are not numbers, letters, underscores, or dash
-      sanitizedObj[key] = value.replace(/[^0-9a-zA-Z_-]/g, '') as T[typeof key];
+      sanitizedObj[key] = value.replace(
+        /[^0-9a-zA-Z _-]/g,
+        ''
+      ) as T[typeof key];
       // The 'as T[typeof key]' part of this line is a type assertion that tells TypeScript that the type of the sanitized value is the same as the type of the property.
     } else {
       // If the value is of an unsupported type, throw an error

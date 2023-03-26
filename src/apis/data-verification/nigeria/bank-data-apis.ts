@@ -1,5 +1,5 @@
 import { BaseSDK } from '../../base-config';
-import { IndexSignatureBaseParams, VerifyBankAcctParams } from '@/src/types';
+import { IndexSignatureBaseParams, BankAcctParams } from '@/src/types';
 import {
   GET_ALL_CODES_ENDPOINT,
   VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT,
@@ -25,10 +25,10 @@ export class NGBankDatasVerification extends BaseSDK {
   /**
    * Verifies a bank account using account details and returns the result.
    * @async
-   * @param {VerifyBankAcctParams} datas - The bank account details to verify.
+   * @param {BankAcctParams} datas - The bank account details to verify.
    * @returns {Promise<any>} A promise that resolves with the result of the POST request.
    */
-  async verifyNgBankAcctFull(datas: VerifyBankAcctParams) {
+  async verifyNgBankAcctFull(datas: BankAcctParams) {
     return await this.post(VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT, datas);
   }
 

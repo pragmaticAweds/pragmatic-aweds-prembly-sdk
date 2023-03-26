@@ -26,6 +26,8 @@ export const VERIFY_CAC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/cac`;
 
 export const VERIFY_CAC_ADVANCE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/cac/advance`;
 
+export const VERIFY_STAMP_DUTY_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/stamp_duty`;
+
 export const VERIFY_INTL_PASSPORT_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/national_passport`;
 
 export const VERIFY_INTL_PASSPORT_ASYNC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/national_passport/async`;
@@ -61,6 +63,8 @@ export const VERIFY_TIN_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_1}/tin`;
 export const VERIFY_VEHICLE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/vehicle`;
 
 export const VERIFY_VOTERS_CARD_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/voters_card`;
+
+export const VERIFY_VOTERS_CARD_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/voters_card/image`;
 
 export const VERIFY_BUSINESS_UGANDA_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/ug/company`;
 
