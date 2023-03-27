@@ -232,6 +232,23 @@ describe('Prembly SDK Test', () => {
       expect(res).toHaveProperty('status', 200);
       expect(res.data).toHaveProperty('response_code', '00');
     });
+
+    it('verify Nigeria International passport with face is working', async () => {
+      const res = await premblyClient.verifyNgIntlPassportWithFace({
+        number: 'A00400000',
+        last_name: 'test',
+        image: NIN_BASE_64_TEST_IMAGE,
+      });
+      expect(res).toHaveProperty('status', 200);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+
+    it('verify Nigeria International passport with image is working', async () => {
+      const res = await premblyClient.verifyNgIntlPassportWithImg({
+        image: NIN_BASE_64_TEST_IMAGE,
+      });
+      expect(res).toHaveProperty('status', 200);
+    });
   });
 
   describe('Verifying All Ghana APIs are working', () => {
