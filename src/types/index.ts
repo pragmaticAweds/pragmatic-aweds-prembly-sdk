@@ -23,8 +23,12 @@ export interface CACParams {
 }
 
 export interface CreditBureauParams
-  extends Pick<IndexSignatureBaseParams, 'first_name'> {
+  extends Pick<
+    IndexSignatureBaseParams,
+    'first_name' | 'dob' | 'customer_reference' | 'customer_name' | 'number'
+  > {
   phone_number: string;
+  mode: 'ID' | 'BIO';
 }
 
 export interface DriversLicenseParams extends IndexSignatureBaseParams {}

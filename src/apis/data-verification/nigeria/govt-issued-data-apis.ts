@@ -14,6 +14,7 @@ import {
   VERIFY_CAC_ADVANCE_ENDPOINT,
   VERIFY_CAC_ENDPOINT,
   VERIFY_CAC_WITH_NAME_ENDPOINT,
+  VERIFY_CREDIT_BUREAU_CONSUMER_BASIC_ENDPOINT,
   VERIFY_CREDIT_BUREAU_ENDPOINT,
   VERIFY_DRIVERS_LICENSE_BASIC_ENDPOINT,
   VERIFY_DRIVERS_LICENSE_ENDPOINT,
@@ -42,16 +43,20 @@ export class NGGovtIssuedDatasVerification extends BaseSDK {
     return this.post(VERIFY_CAC_ENDPOINT, datas);
   }
 
-  verifyNgCACWithName(datas: Pick<CACParams, 'company_name'>) {
-    return this.post(VERIFY_CAC_WITH_NAME_ENDPOINT, datas);
-  }
-
   verifyNgCACFull(datas: CACParams) {
     return this.post(VERIFY_CAC_ADVANCE_ENDPOINT, datas);
   }
 
-  verifyNgCreditBureau(datas: CreditBureauParams) {
+  verifyNgCreditBureau(
+    datas: Pick<CreditBureauParams, 'phone_number' | 'first_name'>
+  ) {
     return this.post(VERIFY_CREDIT_BUREAU_ENDPOINT, datas);
+  }
+
+  verifyNgCreditBureauConsumerBasic(
+    datas: Omit<CreditBureauParams, 'phone_number' | 'first_name'>
+  ) {
+    return this.post(VERIFY_CREDIT_BUREAU_CONSUMER_BASIC_ENDPOINT, datas);
   }
 
   verifyNgDriversLicense(datas: Pick<DriversLicenseParams, 'number' | 'dob'>) {
@@ -132,5 +137,8 @@ export class NGGovtIssuedDatasVerification extends BaseSDK {
 
   verifyNgIntlPassportAsync(datas: Omit<IntlPassPortParams, 'image'>) {
     return this.post(VERIFY_INTL_PASSPORT_ASYNC_ENDPOINT, datas);
+  }
+  verifyNgCACWithName(datas: Pick<CACParams, 'company_name'>) {
+    return this.post(VERIFY_CAC_WITH_NAME_ENDPOINT, datas);
   }
 }
