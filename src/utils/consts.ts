@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 export const PREMBLY_SDK_BASEURL = 'https://api.myidentitypay.com';
 
 export const PREMBLY_SDK_TEST_BASE_URL = 'https://sandbox.myidentitypass.com';
@@ -12,13 +14,25 @@ export const PREMBLY_SDK_API_VERSION_1 =
 export const PREMBLY_SDK_API_VERSION_2 =
   'api/v2/biometrics/merchant/data/verification';
 
-export const GET_ALL_CODES_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_code`;
+export const PREMBLY_SDK_API_MASHUP = 'api/v2/biometrics/merchant';
 
-export const VERIFY_ADVANCE_ACCOUNT_VERSION_2_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_account/advance`;
+export const VERIFY_MASHUP_BVN_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_MASHUP}/custom/bvn_w_credit`;
+
+export const VERIFY_MASHUP_BVN_OR_PHONE_ENDPOINT = `/${PREMBLY_SDK_API_MASHUP}/bp/verification`;
+
+export const VERIFY_MASHUP_BVN_NIN_PHONE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn_nin_phone`;
+
+export const GET_ALL_BANK_CODES_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_code`;
+
+export const VERIFY_BANK_ACCOUNT_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_account`;
+
+export const VERIFY_BANK_ACCOUNT_ADVANCE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_account/advance`;
+
+export const VERIFY_BANK_ACCOUNT_COMPARISON_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_account/advance`;
 
 export const VERIFY_BVN_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn_validation`;
 
-export const VERIFY_BVN_ADVANCE_VERSION_2_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn`;
+export const VERIFY_BVN_ADVANCE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn`;
 
 export const VERIFY_BVN_WITH_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn_w_face`;
 
@@ -41,6 +55,14 @@ export const VERIFY_INTL_PASSPORT_WITH_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERS
 export const VERIFY_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau`;
 
 export const VERIFY_CREDIT_BUREAU_CONSUMER_BASIC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau/consumer/basic`;
+
+export const VERIFY_CREDIT_BUREAU_CONSUMER_FULL_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau/consumer/advance`;
+
+export const VERIFY_CREDIT_BUREAU_BUSINESS_BASIC_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau/commercial/basic`;
+
+export const VERIFY_CREDIT_BUREAU_BUSINESS_FULL_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau/commercial/advance`;
+
+export const VERIFY_CREDIT_BUREAU_MASHUP_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/credit_bureau/combined`;
 
 export const VERIFY_DRIVERS_LICENSE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/drivers_license`;
 
@@ -71,6 +93,10 @@ export const VERIFY_VOTERS_CARD_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/voters
 export const VERIFY_VOTERS_CARD_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/voters_card/image`;
 
 export const VERIFY_BUSINESS_UGANDA_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/ug/company`;
+
+export const VERIFY_NID_RWANDA_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/rwanda/nid`;
+
+export const VERIFY_PASSPORT_RWANDA_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/rwanda/passport`;
 
 export const VERIFY_INTERNATIONAL_PASSPORT_GHANA_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/gh/passport`;
 

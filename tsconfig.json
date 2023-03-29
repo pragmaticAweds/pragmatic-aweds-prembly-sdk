@@ -17,5 +17,10 @@
     "paths": {
       "@/src/*": ["src/*"]
     }
-  }
+  },
+  "include": [
+    // paths to include
+    "src/**/*.ts",
+    ".eslintrc.js"
+  ]
 }

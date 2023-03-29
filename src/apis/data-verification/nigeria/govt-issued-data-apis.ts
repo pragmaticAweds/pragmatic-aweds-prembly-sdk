@@ -14,8 +14,12 @@ import {
   VERIFY_CAC_ADVANCE_ENDPOINT,
   VERIFY_CAC_ENDPOINT,
   VERIFY_CAC_WITH_NAME_ENDPOINT,
+  VERIFY_CREDIT_BUREAU_BUSINESS_BASIC_ENDPOINT,
+  VERIFY_CREDIT_BUREAU_BUSINESS_FULL_ENDPOINT,
   VERIFY_CREDIT_BUREAU_CONSUMER_BASIC_ENDPOINT,
+  VERIFY_CREDIT_BUREAU_CONSUMER_FULL_ENDPOINT,
   VERIFY_CREDIT_BUREAU_ENDPOINT,
+  VERIFY_CREDIT_BUREAU_MASHUP_ENDPOINT,
   VERIFY_DRIVERS_LICENSE_BASIC_ENDPOINT,
   VERIFY_DRIVERS_LICENSE_ENDPOINT,
   VERIFY_DRIVERS_LICENSE_FACE_ID_ENDPOINT,
@@ -54,9 +58,33 @@ export class NGGovtIssuedDatasVerification extends BaseSDK {
   }
 
   verifyNgCreditBureauConsumerBasic(
-    datas: Omit<CreditBureauParams, 'phone_number' | 'first_name'>
+    datas: Omit<CreditBureauParams, 'phone_number' | 'first_name' | 'rc_number'>
   ) {
     return this.post(VERIFY_CREDIT_BUREAU_CONSUMER_BASIC_ENDPOINT, datas);
+  }
+
+  verifyNgCreditBureauConsumerFull(
+    datas: Omit<CreditBureauParams, 'phone_number' | 'first_name' | 'rc_number'>
+  ) {
+    return this.post(VERIFY_CREDIT_BUREAU_CONSUMER_FULL_ENDPOINT, datas);
+  }
+
+  verifyNgCreditBureauComBasic(
+    datas: Pick<
+      CreditBureauParams,
+      'rc_number' | 'customer_name' | 'customer_reference'
+    >
+  ) {
+    return this.post(VERIFY_CREDIT_BUREAU_BUSINESS_BASIC_ENDPOINT, datas);
+  }
+
+  verifyNgCreditBureauComFull(
+    datas: Pick<
+      CreditBureauParams,
+      'rc_number' | 'customer_name' | 'customer_reference'
+    >
+  ) {
+    return this.post(VERIFY_CREDIT_BUREAU_BUSINESS_FULL_ENDPOINT, datas);
   }
 
   verifyNgDriversLicense(datas: Pick<DriversLicenseParams, 'number' | 'dob'>) {
@@ -140,5 +168,14 @@ export class NGGovtIssuedDatasVerification extends BaseSDK {
   }
   verifyNgCACWithName(datas: Pick<CACParams, 'company_name'>) {
     return this.post(VERIFY_CAC_WITH_NAME_ENDPOINT, datas);
+  }
+
+  verifyNgCreditBureauMashup(
+    datas: Pick<
+      CreditBureauParams,
+      'number' | 'customer_name' | 'customer_reference'
+    >
+  ) {
+    return this.post(VERIFY_CREDIT_BUREAU_MASHUP_ENDPOINT, datas);
   }
 }

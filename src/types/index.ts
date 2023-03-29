@@ -7,25 +7,33 @@ export interface IndexSignatureBaseParams {
   dob: string;
   customer_reference?: string;
   customer_name?: string;
+  rc_number?: string | number;
 }
 
 export interface BankAcctParams
-  extends Pick<IndexSignatureBaseParams, 'number'> {
+  extends Pick<
+    IndexSignatureBaseParams,
+    'number' | 'customer_name' | 'customer_reference'
+  > {
   bank_code: number;
 }
 
 type CompanyTypes = 'RC' | 'BN' | 'IT' | 'LL' | 'LLP';
 
-export interface CACParams {
+export interface CACParams extends Pick<IndexSignatureBaseParams, 'rc_number'> {
   company_name: string;
-  rc_number: string;
   company_type: CompanyTypes;
 }
 
 export interface CreditBureauParams
   extends Pick<
     IndexSignatureBaseParams,
-    'first_name' | 'dob' | 'customer_reference' | 'customer_name' | 'number'
+    | 'first_name'
+    | 'dob'
+    | 'customer_reference'
+    | 'customer_name'
+    | 'number'
+    | 'rc_number'
   > {
   phone_number: string;
   mode: 'ID' | 'BIO';
@@ -91,4 +99,8 @@ export interface SLDriversLicenseParams
   lastname?: string;
   middlename?: string;
   search_mode: 'ID' | 'BIO';
+}
+
+export interface MashupParams extends Pick<IndexSignatureBaseParams, 'number'> {
+  channel: 'BVN' | 'PHONE';
 }
