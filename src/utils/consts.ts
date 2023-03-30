@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 export const PREMBLY_SDK_BASEURL = 'https://api.myidentitypay.com';
 
 export const PREMBLY_SDK_TEST_BASE_URL = 'https://sandbox.myidentitypass.com';

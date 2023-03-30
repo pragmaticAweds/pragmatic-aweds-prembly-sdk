@@ -1,4 +1,6 @@
-export interface IndexSignatureBaseParams {
+/*eslint-disable @typescript-eslint/no-empty-interface*/
+
+export interface indexSignatureBaseParams {
   [key: string]: string | number | undefined;
   number: number | string;
   image: string;
@@ -10,24 +12,24 @@ export interface IndexSignatureBaseParams {
   rc_number?: string | number;
 }
 
-export interface BankAcctParams
+export interface bankAcctParams
   extends Pick<
-    IndexSignatureBaseParams,
+    indexSignatureBaseParams,
     'number' | 'customer_name' | 'customer_reference'
   > {
   bank_code: number;
 }
 
-type CompanyTypes = 'RC' | 'BN' | 'IT' | 'LL' | 'LLP';
+type companyTypes = 'RC' | 'BN' | 'IT' | 'LL' | 'LLP';
 
-export interface CACParams extends Pick<IndexSignatureBaseParams, 'rc_number'> {
+export interface cacParams extends Pick<indexSignatureBaseParams, 'rc_number'> {
   company_name: string;
-  company_type: CompanyTypes;
+  company_type: companyTypes;
 }
 
-export interface CreditBureauParams
+export interface creditBureauParams
   extends Pick<
-    IndexSignatureBaseParams,
+    indexSignatureBaseParams,
     | 'first_name'
     | 'dob'
     | 'customer_reference'
@@ -39,53 +41,51 @@ export interface CreditBureauParams
   mode: 'ID' | 'BIO';
 }
 
-export interface DriversLicenseParams extends IndexSignatureBaseParams {}
+export interface intlPassPortParams
+  extends Pick<indexSignatureBaseParams, 'last_name' | 'number' | 'image'> {}
 
-export interface IntlPassPortParams
-  extends Pick<IndexSignatureBaseParams, 'last_name' | 'number' | 'image'> {}
-
-export interface StampDutyParams
+export interface stampDutyParams
   extends Pick<
-    IndexSignatureBaseParams,
+    indexSignatureBaseParams,
     'customer_reference' | 'customer_name' | 'number'
   > {}
 
-export interface VotersCardParams
-  extends Pick<IndexSignatureBaseParams, 'number' | 'last_name' | 'image'> {
+export interface votersCardParams
+  extends Pick<indexSignatureBaseParams, 'number' | 'last_name' | 'image'> {
   state: string;
 }
 
-export interface NinParams extends Pick<IndexSignatureBaseParams, 'number'> {
+export interface ninParams extends Pick<indexSignatureBaseParams, 'number'> {
   number_nin: number;
 }
 
-export interface TINParams extends Pick<IndexSignatureBaseParams, 'number'> {
+export interface tinParams extends Pick<indexSignatureBaseParams, 'number'> {
   channel: 'TIN' | 'CAC' | 'Phone';
 }
 
-export interface VehiclePlateNoParams {
+export interface vehiclePlateNoParams {
   vehicle_number: string;
 }
 
-export interface BusUGParams
+export interface ugBusParams
   extends Pick<
-    IndexSignatureBaseParams,
+    indexSignatureBaseParams,
     'customer_name' | 'customer_reference'
   > {
   reservation_number: string;
 }
 
-export interface BusSAParams extends Omit<BusUGParams, 'reservation_number'> {
+export interface saBusParams extends Omit<ugBusParams, 'reservation_number'> {
   reg_number: string;
 }
 
-export interface GHVotersCardParams
-  extends Pick<IndexSignatureBaseParams, 'number'> {
+export interface ghVotersCardParams
+  extends Pick<indexSignatureBaseParams, 'number'> {
   type: 'OLD' | 'MAIN';
 }
 
-export interface KYNationalIdentityParams
-  extends Pick<IndexSignatureBaseParams, 'dob' | 'number'> {
+export interface kyNationalIdentityParams
+  extends Pick<indexSignatureBaseParams, 'dob' | 'number'> {
   firstname: string;
   lastname: string;
   nationalid: string;
@@ -93,14 +93,14 @@ export interface KYNationalIdentityParams
   customer_reference: string;
 }
 
-export interface SLDriversLicenseParams
-  extends Partial<Pick<IndexSignatureBaseParams, 'dob' | 'number'>> {
+export interface slDriversLicenseParams
+  extends Partial<Pick<indexSignatureBaseParams, 'dob' | 'number'>> {
   firstname?: string;
   lastname?: string;
   middlename?: string;
   search_mode: 'ID' | 'BIO';
 }
 
-export interface MashupParams extends Pick<IndexSignatureBaseParams, 'number'> {
+export interface mashupParams extends Pick<indexSignatureBaseParams, 'number'> {
   channel: 'BVN' | 'PHONE';
 }

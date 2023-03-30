@@ -1,5 +1,5 @@
 import { BaseSDK } from '../../base-config';
-import { IndexSignatureBaseParams, BankAcctParams } from '@/src/types';
+import { indexSignatureBaseParams, bankAcctParams } from '@/src/types';
 import {
   GET_ALL_BANK_CODES_ENDPOINT,
   VERIFY_BANK_ACCOUNT_ADVANCE_ENDPOINT,
@@ -14,7 +14,7 @@ import {
  * Provides methods for verifying bank account details and BVN (Bank Verification Number) using the API.
  * @extends BaseSDK
  */
-export class NGBankDatasVerification extends BaseSDK {
+export class NgBankDatasVerification extends BaseSDK {
   /**
    * Retrieves all bank codes.
    * @
@@ -27,11 +27,11 @@ export class NGBankDatasVerification extends BaseSDK {
   /**
    * Verifies a bank account using account details and returns the result.
    * @
-   * @param {BankAcctParams} datas - The bank account details to verify.
+   * @param {bankAcctParams} datas - The bank account details to verify.
    * @returns {Promise<any>} A promise that resolves with the result of the POST request.
    */
 
-  verifyNgBankAcctFull(datas: Pick<BankAcctParams, 'number' | 'bank_code'>) {
+  verifyNgBankAcctFull(datas: Pick<bankAcctParams, 'number' | 'bank_code'>) {
     return this.post(VERIFY_BANK_ACCOUNT_ADVANCE_ENDPOINT, datas);
   }
 
@@ -44,7 +44,7 @@ export class NGBankDatasVerification extends BaseSDK {
    * @returns {Promise<any>} A promise that resolves with the result of the POST request.
    */
   verifyNgBvnWithFace(
-    datas: Pick<IndexSignatureBaseParams, 'image' | 'number'>
+    datas: Pick<indexSignatureBaseParams, 'image' | 'number'>
   ) {
     return this.post(VERIFY_BVN_WITH_IMAGE_ENDPOINT, datas);
   }
@@ -56,7 +56,7 @@ export class NGBankDatasVerification extends BaseSDK {
    * @param {string} datas.number - The BVN number to verify.
    * @returns {Promise<any>} A promise that resolves with the result of the POST request.
    */
-  verifyNgBvn(datas: Pick<IndexSignatureBaseParams, 'number'>) {
+  verifyNgBvn(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_BVN_ENDPOINT, datas);
   }
 
@@ -67,17 +67,17 @@ export class NGBankDatasVerification extends BaseSDK {
    * @param {string} datas.number - The BVN number to verify.
    * @returns {Promise<any>} A promise that resolves with the result of the POST request.
    */
-  verifyNgBvnFull(datas: Pick<IndexSignatureBaseParams, 'number'>) {
+  verifyNgBvnFull(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_BVN_ADVANCE_ENDPOINT, datas);
   }
 
   //newly added but not tested
 
-  verifyNgBankAcctBasic(datas: Pick<BankAcctParams, 'number' | 'bank_code'>) {
+  verifyNgBankAcctBasic(datas: Pick<bankAcctParams, 'number' | 'bank_code'>) {
     return this.post(VERIFY_BANK_ACCOUNT_ENDPOINT, datas);
   }
 
-  verifyNgBankAcctComparism(datas: BankAcctParams) {
+  verifyNgBankAcctComparism(datas: bankAcctParams) {
     return this.post(VERIFY_BANK_ACCOUNT_COMPARISON_ENDPOINT, datas);
   }
 }

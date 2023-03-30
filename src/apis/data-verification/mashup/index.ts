@@ -1,5 +1,5 @@
 import { BaseSDK } from '../../base-config';
-import { MashupParams } from '@/src/types';
+import { mashupParams } from '@/src/types';
 import {
   VERIFY_MASHUP_BVN_CREDIT_BUREAU_ENDPOINT,
   VERIFY_MASHUP_BVN_NIN_PHONE_ENDPOINT,
@@ -9,15 +9,15 @@ import {
 export class MashupDatasVerification extends BaseSDK {
   //newly added but not tested
 
-  verifyBvnWithCreditBureauMashup(datas: Pick<MashupParams, 'number'>) {
+  verifyBvnWithCreditBureauMashup(datas: Pick<mashupParams, 'number'>) {
     return this.post(VERIFY_MASHUP_BVN_CREDIT_BUREAU_ENDPOINT, datas);
   }
 
-  verifyBvnOrPhoneMashup(datas: MashupParams) {
+  verifyBvnOrPhoneMashup(datas: mashupParams) {
     return this.post(VERIFY_MASHUP_BVN_OR_PHONE_ENDPOINT, datas);
   }
 
-  verifyBvnOrPhoneOrNinMashup(datas: Pick<MashupParams, 'number'>) {
+  verifyBvnOrPhoneOrNinMashup(datas: Pick<mashupParams, 'number'>) {
     return this.post(VERIFY_MASHUP_BVN_NIN_PHONE_ENDPOINT, datas);
   }
 }

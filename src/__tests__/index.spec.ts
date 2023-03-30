@@ -1,6 +1,8 @@
 import PremblySdk from '..';
 import { NIN_BASE_64_TEST_IMAGE } from '../utils/consts';
 
+/* eslint-disable max-len */
+
 describe('Prembly SDK Test', () => {
   const config = {
     apiKey: 'test_ucc8c5fyl6rl78idn3lqjp:ogINip3R6hrzzARkTI42vv13ybY',

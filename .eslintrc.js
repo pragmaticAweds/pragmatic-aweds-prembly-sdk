@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+
 /* global module */
 
 module.exports = {
@@ -15,24 +16,67 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
+  overrides: [
+    {
+      files: ['src/utils/consts.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: 'default',
+            format: ['UPPER_CASE'],
+          },
+        ],
+      },
+    },
+  ],
   rules: {
     // Set all rules to warn level
-    'no-var': 'warn',
-    'no-unused-vars': 'warn',
-    'no-console': 'warn',
     '@typescript-eslint/naming-convention': [
       'error',
       {
         selector: 'default',
-        format: ['camelCase', 'snake_case'],
+        format: ['camelCase', 'snake_case', 'PascalCase'],
+      },
+      {
+        selector: 'class',
+        format: ['PascalCase'],
       },
     ],
-    'no-empty-function': 'warn',
-    'no-magic-numbers': 'warn',
-    'no-else-return': 'warn',
-    'consistent-return': 'warn',
-    'no-prototype-builtins': 'warn',
-    'max-len': ['warn', { code: 80, ignoreComments: true }],
+
+    // 'no-var': 'warn',
+    // 'no-unused-vars': 'warn',
+    // 'no-console': 'warn',
+    // curly: ['error', 'all'],
+    // 'no-extra-label': 'error',
+    // 'no-unused-labels': 'error',
+    // 'new-parens': 'error',
+    // 'no-new-wrappers': 'error',
+    // 'no-debugger': 'error',
+    // 'no-duplicate-case': 'error',
+    // 'no-throw-literal': 'error',
+    // 'no-return-await': 'error',
+    // 'no-unsafe-finally': 'error',
+
+    // 'object-shorthand': 'error',
+
+    // 'no-array-constructor': 'error',
+    // 'default-case': 'error',
+    // '@typescript-eslint/member-ordering': 'error',
+    // '@typescript-eslint/no-floating-promises': 'error',
+    // '@typescript-eslint/no-unsafe-member-access': 'off',
+    // '@typescript-eslint/naming-convention': [
+    //   'error',
+    //   {
+    //     selector: 'default',
+    //     format: ['camelCase', 'snake_case', 'UPPER_CASE'],
+    //   },
+    // ],
+    'no-empty-function': 'error',
+    'no-magic-numbers': 'error',
+    'no-else-return': 'error',
+    'consistent-return': 'error',
+    'no-prototype-builtins': 'error',
   },
   ignorePatterns: [
     // paths to ignore

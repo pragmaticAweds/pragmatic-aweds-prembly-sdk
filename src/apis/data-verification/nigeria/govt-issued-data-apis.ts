@@ -1,14 +1,13 @@
 import {
-  IndexSignatureBaseParams,
-  NinParams,
-  TINParams,
-  VehiclePlateNoParams,
-  CACParams,
-  CreditBureauParams,
-  DriversLicenseParams,
-  VotersCardParams,
-  IntlPassPortParams,
-  StampDutyParams,
+  indexSignatureBaseParams,
+  ninParams,
+  tinParams,
+  vehiclePlateNoParams,
+  cacParams,
+  creditBureauParams,
+  votersCardParams,
+  intlPassPortParams,
+  stampDutyParams,
 } from '@/src/types';
 import {
   VERIFY_CAC_ADVANCE_ENDPOINT,
@@ -42,36 +41,36 @@ import {
 } from '@/src/utils/consts';
 import { BaseSDK } from '../../base-config';
 
-export class NGGovtIssuedDatasVerification extends BaseSDK {
-  verifyNgCAC(datas: Pick<CACParams, 'company_type' | 'rc_number'>) {
+export class NgGovtIssuedDatasVerification extends BaseSDK {
+  verifyNgCAC(datas: Pick<cacParams, 'company_type' | 'rc_number'>) {
     return this.post(VERIFY_CAC_ENDPOINT, datas);
   }
 
-  verifyNgCACFull(datas: CACParams) {
+  verifyNgCACFull(datas: cacParams) {
     return this.post(VERIFY_CAC_ADVANCE_ENDPOINT, datas);
   }
 
   verifyNgCreditBureau(
-    datas: Pick<CreditBureauParams, 'phone_number' | 'first_name'>
+    datas: Pick<creditBureauParams, 'phone_number' | 'first_name'>
   ) {
     return this.post(VERIFY_CREDIT_BUREAU_ENDPOINT, datas);
   }
 
   verifyNgCreditBureauConsumerBasic(
-    datas: Omit<CreditBureauParams, 'phone_number' | 'first_name' | 'rc_number'>
+    datas: Omit<creditBureauParams, 'phone_number' | 'first_name' | 'rc_number'>
   ) {
     return this.post(VERIFY_CREDIT_BUREAU_CONSUMER_BASIC_ENDPOINT, datas);
   }
 
   verifyNgCreditBureauConsumerFull(
-    datas: Omit<CreditBureauParams, 'phone_number' | 'first_name' | 'rc_number'>
+    datas: Omit<creditBureauParams, 'phone_number' | 'first_name' | 'rc_number'>
   ) {
     return this.post(VERIFY_CREDIT_BUREAU_CONSUMER_FULL_ENDPOINT, datas);
   }
 
   verifyNgCreditBureauComBasic(
     datas: Pick<
-      CreditBureauParams,
+      creditBureauParams,
       'rc_number' | 'customer_name' | 'customer_reference'
     >
   ) {
@@ -80,99 +79,103 @@ export class NGGovtIssuedDatasVerification extends BaseSDK {
 
   verifyNgCreditBureauComFull(
     datas: Pick<
-      CreditBureauParams,
+      creditBureauParams,
       'rc_number' | 'customer_name' | 'customer_reference'
     >
   ) {
     return this.post(VERIFY_CREDIT_BUREAU_BUSINESS_FULL_ENDPOINT, datas);
   }
 
-  verifyNgDriversLicense(datas: Pick<DriversLicenseParams, 'number' | 'dob'>) {
+  verifyNgDriversLicense(
+    datas: Pick<indexSignatureBaseParams, 'number' | 'dob'>
+  ) {
     return this.post(VERIFY_DRIVERS_LICENSE_ENDPOINT, datas);
   }
 
-  verifyNgBasicDriversLicense(datas: Omit<DriversLicenseParams, 'image'>) {
+  verifyNgBasicDriversLicense(datas: Omit<indexSignatureBaseParams, 'image'>) {
     return this.post(VERIFY_DRIVERS_LICENSE_BASIC_ENDPOINT, datas);
   }
 
-  verifyNgFullDriversLicense(datas: Omit<DriversLicenseParams, 'image'>) {
+  verifyNgFullDriversLicense(datas: Omit<indexSignatureBaseParams, 'image'>) {
     return this.post(VERIFY_DRIVERS_LICENSE_FULL_ENDPOINT, datas);
   }
 
-  verifyNgDriversLicenseImage(datas: Pick<DriversLicenseParams, 'image'>) {
+  verifyNgDriversLicenseImage(datas: Pick<indexSignatureBaseParams, 'image'>) {
     return this.post(VERIFY_DRIVERS_LICENSE_IMAGE_ENDPOINT, datas);
   }
 
   verifyNgDriversLicenseFaceID(
-    datas: Omit<DriversLicenseParams, 'first_name' | 'last_name'>
+    datas: Omit<indexSignatureBaseParams, 'first_name' | 'last_name'>
   ) {
     return this.post(VERIFY_DRIVERS_LICENSE_FACE_ID_ENDPOINT, datas);
   }
 
-  verifyNgNINWithImage(datas: Pick<DriversLicenseParams, 'image'>) {
+  verifyNgNINWithImage(datas: Pick<indexSignatureBaseParams, 'image'>) {
     return this.post(VERIFY_NIN_WITH_IMAGE_ENDPOINT, datas);
   }
 
-  verifyNgNINWithFace(datas: Pick<DriversLicenseParams, 'image' | 'number'>) {
+  verifyNgNINWithFace(
+    datas: Pick<indexSignatureBaseParams, 'image' | 'number'>
+  ) {
     return this.post(VERIFY_NIN_WITH_FACE_ENDPOINT, datas);
   }
 
-  verifyNgNIN(datas: Partial<NinParams>) {
+  verifyNgNIN(datas: Partial<ninParams>) {
     return this.post(VERIFY_NIN_WITH_NO_IMAGE_ENDPOINT, datas);
   }
 
-  verifyNgPhoneNo(datas: Pick<IndexSignatureBaseParams, 'number'>) {
+  verifyNgPhoneNo(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_PHONE_NUMBER_BASIC_ENDPOINT, datas);
   }
 
-  verifyNgPhoneNoFull(datas: Pick<IndexSignatureBaseParams, 'number'>) {
+  verifyNgPhoneNoFull(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_PHONE_NUMBER_FULL_ENDPOINT, datas);
   }
 
-  verifyNgTIN(datas: TINParams) {
+  verifyNgTIN(datas: tinParams) {
     return this.post(VERIFY_TIN_ENDPOINT, datas);
   }
 
-  verifyNgVehicle(datas: VehiclePlateNoParams) {
+  verifyNgVehicle(datas: vehiclePlateNoParams) {
     return this.post(VERIFY_VEHICLE_ENDPOINT, datas);
   }
 
-  verifyNgVotersCard(datas: Omit<VotersCardParams, 'image'>) {
+  verifyNgVotersCard(datas: Omit<votersCardParams, 'image'>) {
     return this.post(VERIFY_VOTERS_CARD_ENDPOINT, datas);
   }
 
-  verifyNgVotersCardWithImg(datas: Pick<VotersCardParams, 'image'>) {
+  verifyNgVotersCardWithImg(datas: Pick<votersCardParams, 'image'>) {
     return this.post(VERIFY_VOTERS_CARD_IMAGE_ENDPOINT, datas);
   }
 
-  verifyNgStampDuty(datas: StampDutyParams) {
+  verifyNgStampDuty(datas: stampDutyParams) {
     return this.post(VERIFY_STAMP_DUTY_ENDPOINT, datas);
   }
 
-  verifyNgIntlPassportSync(datas: Omit<IntlPassPortParams, 'image'>) {
+  verifyNgIntlPassportSync(datas: Omit<intlPassPortParams, 'image'>) {
     return this.post(VERIFY_INTL_PASSPORT_ENDPOINT, datas);
   }
 
-  verifyNgIntlPassportWithFace(datas: IntlPassPortParams) {
+  verifyNgIntlPassportWithFace(datas: intlPassPortParams) {
     return this.post(VERIFY_INTL_PASSPORT_WITH_FACE_ENDPOINT, datas);
   }
 
-  verifyNgIntlPassportWithImg(datas: Pick<IntlPassPortParams, 'image'>) {
+  verifyNgIntlPassportWithImg(datas: Pick<intlPassPortParams, 'image'>) {
     return this.post(VERIFY_INTL_PASSPORT_WITH_IMAGE_ENDPOINT, datas);
   }
 
   //newly added but not tested
 
-  verifyNgIntlPassportAsync(datas: Omit<IntlPassPortParams, 'image'>) {
+  verifyNgIntlPassportAsync(datas: Omit<intlPassPortParams, 'image'>) {
     return this.post(VERIFY_INTL_PASSPORT_ASYNC_ENDPOINT, datas);
   }
-  verifyNgCACWithName(datas: Pick<CACParams, 'company_name'>) {
+  verifyNgCACWithName(datas: Pick<cacParams, 'company_name'>) {
     return this.post(VERIFY_CAC_WITH_NAME_ENDPOINT, datas);
   }
 
   verifyNgCreditBureauMashup(
     datas: Pick<
-      CreditBureauParams,
+      creditBureauParams,
       'number' | 'customer_name' | 'customer_reference'
     >
   ) {

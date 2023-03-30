@@ -1,5 +1,5 @@
 import { BaseSDK } from '../../base-config';
-import { KYNationalIdentityParams } from '@/src/types';
+import { kyNationalIdentityParams } from '@/src/types';
 import {
   VERIFY_DRIVERS_LICENSE_KENYA_ENDPOINT,
   VERIFY_NATIONAL_IDENTITY_KENYA_ENDPOINT,
@@ -12,7 +12,7 @@ export class KenyaDatasVerification extends BaseSDK {
   //These APi are not tested yet
   verifyKeNationalIdentity(
     datas: Omit<
-      KYNationalIdentityParams,
+      kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
     >
   ) {
@@ -21,7 +21,7 @@ export class KenyaDatasVerification extends BaseSDK {
 
   verifyKeNIN(
     datas: Pick<
-      KYNationalIdentityParams,
+      kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
     >
   ) {
@@ -30,7 +30,7 @@ export class KenyaDatasVerification extends BaseSDK {
 
   verifyKePassport(
     datas: Pick<
-      KYNationalIdentityParams,
+      kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
     >
   ) {
@@ -39,7 +39,7 @@ export class KenyaDatasVerification extends BaseSDK {
 
   verifyKeSerialNo(
     datas: Pick<
-      KYNationalIdentityParams,
+      kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
     >
   ) {
@@ -48,7 +48,7 @@ export class KenyaDatasVerification extends BaseSDK {
 
   verifyKeDriversLicense(
     datas: Pick<
-      KYNationalIdentityParams,
+      kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
     >
   ) {

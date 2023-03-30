@@ -1,4 +1,4 @@
-import { IndexSignatureBaseParams } from '@/src/types';
+import { indexSignatureBaseParams } from '@/src/types';
 import {
   VERIFY_NID_RWANDA_ENDPOINT,
   VERIFY_PASSPORT_RWANDA_ENDPOINT,
@@ -7,11 +7,11 @@ import { BaseSDK } from '../../base-config';
 
 export class RwandaDatasVerification extends BaseSDK {
   //These APi are not tested yet
-  verifyRwNID(datas: Pick<IndexSignatureBaseParams, 'number'>) {
+  verifyRwNID(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_NID_RWANDA_ENDPOINT, datas);
   }
 
-  verifyRwPassport(datas: Pick<IndexSignatureBaseParams, 'number'>) {
+  verifyRwPassport(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_PASSPORT_RWANDA_ENDPOINT, datas);
   }
 }
