@@ -12,8 +12,8 @@
     "es-lint": "eslint . --ext .ts",
     "rebuild": "rm -rf dist && yarn build",
     "test": "jest",
-    "ci": "yarn run lint && yarn run test && yarn run build",
-    "release": "yarn run lint && yarn run test && yarn run build && changeset publish"
+    "ci": "yarn run lint && yarn run es-lint && yarn run test && yarn run build",
+    "release": "yarn run lint && yarn run es-lint && yarn run test && yarn run build && changeset publish"
   },
   "keywords": [],
   "author": "Pragmatic Aweds",

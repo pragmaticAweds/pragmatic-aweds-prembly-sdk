@@ -48,8 +48,8 @@ export abstract class BaseSDK {
     this.apiClient = axios.create({
       baseURL: config.env === 'live' ? envUrl[config.env] : envUrl['test'],
       headers: {
-        'app-id': this.appId,
-        'x-api-key': this.apiKey,
+        'app-id': this.appId, // eslint-disable-line @typescript-eslint/naming-convention
+        'x-api-key': this.apiKey, // eslint-disable-line @typescript-eslint/naming-convention
       },
     });
   }

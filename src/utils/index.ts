@@ -46,8 +46,8 @@ async function processApi<T>(apiPromise: () => Promise<AxiosPromise>) {
     }
     // If the response status code is not 200, throw an SdkError.
     throw new SdkError({
-      code: res.data.status,
-      message: res.data.message,
+      code: res.data.status, // eslint-disable-line @typescript-eslint/no-unsafe-member-access
+      message: res.data.message, // eslint-disable-line @typescript-eslint/no-unsafe-member-access
     });
   } catch (err) {
     if (err instanceof SdkError) {
@@ -59,7 +59,7 @@ async function processApi<T>(apiPromise: () => Promise<AxiosPromise>) {
         message: `An AxiosError occurred: ${err.response?.statusText}`,
         code: err.response?.status,
         error: err.message,
-        errorDetail: err.response?.data?.detail,
+        errorDetail: err.response?.data?.detail, // eslint-disable-line @typescript-eslint/no-unsafe-member-access
       });
     } else {
       // If the error is not an SdkError or AxiosError, process it and throw it as an SdkError.
