@@ -1,5 +1,7 @@
 export const PREMBLY_SDK_BASEURL = 'https://api.myidentitypay.com';
 
+export const PREMBLY_SDK_RADAR_BASEURL = 'https://radarapi.myidentitypass.com/';
+
 export const PREMBLY_SDK_TEST_BASE_URL = 'https://sandbox.myidentitypass.com';
 
 export const PREMBLY_SDK_TEST_APIKEY = 'https://sandbox.myidentitypass.com';
@@ -9,14 +11,14 @@ export const PREMBLY_SDK_TEST_APP_ID = 'https://sandbox.myidentitypass.com';
 export const PREMBLY_SDK_API_VERSION_1 =
   'api/v1/biometrics/merchant/data/verification';
 
+export const PREMBLY_SDK_API_V2_PREFIX = 'api/v2/biometrics/merchant';
+
 export const PREMBLY_SDK_API_VERSION_2 =
   'api/v2/biometrics/merchant/data/verification';
 
-export const PREMBLY_SDK_API_MASHUP = 'api/v2/biometrics/merchant';
+export const VERIFY_MASHUP_BVN_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_V2_PREFIX}/custom/bvn_w_credit`;
 
-export const VERIFY_MASHUP_BVN_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_MASHUP}/custom/bvn_w_credit`;
-
-export const VERIFY_MASHUP_BVN_OR_PHONE_ENDPOINT = `/${PREMBLY_SDK_API_MASHUP}/bp/verification`;
+export const VERIFY_MASHUP_BVN_OR_PHONE_ENDPOINT = `/${PREMBLY_SDK_API_V2_PREFIX}/bp/verification`;
 
 export const VERIFY_MASHUP_BVN_NIN_PHONE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn_nin_phone`;
 
