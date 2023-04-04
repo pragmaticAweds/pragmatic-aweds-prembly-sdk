@@ -1,8 +1,10 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { indexSignatureBaseParams } from '../types';
+import { Config } from '../types/config-types';
 import { processApi, sanitizeInputFields } from '../utils';
 import {
   PREMBLY_SDK_BASEURL,
+  PREMBLY_SDK_RADAR_ENDPOINT,
   PREMBLY_SDK_TEST_BASE_URL,
 } from '../utils/consts';
 
@@ -21,6 +23,11 @@ export abstract class BaseSDK {
   protected apiClient: AxiosInstance;
 
   /**
+   * The AxiosInstance used to make API requests
+   */
+  protected radarApiClient: AxiosInstance;
+
+  /**
    * The API key used to authenticate API requests
    */
   protected apiKey: string;
@@ -31,15 +38,23 @@ export abstract class BaseSDK {
   protected appId: string;
 
   /**
+   * The App Token used to authenticate API requests
+   */
+  protected appToken: string;
+
+  /**
    * Constructor for BaseSDK
    * @param {Object} config - The configuration options for the SDK
    * @param {string} config.apiKey - The API key used to authenticate API requests
    * @param {string} config.appId - The App ID used to authenticate API requests
    * @param {"test" | "live"} config.env - The environment to use for API requests ("test" or "live")
+   * @param {string} config.appToken - The App Token to use for authenticating API requests
    */
-  constructor(config: { apiKey: string; appId: string; env: string }) {
-    this.apiKey = config.apiKey;
-    this.appId = config.appId;
+
+  constructor(config: Config) {
+    this.apiKey = config.apiKey as string;
+    this.appId = config.appId as string;
+    this.appToken = config.appToken as string;
 
     /**
      * The AxiosInstance used to make API requests
@@ -52,6 +67,12 @@ export abstract class BaseSDK {
         'x-api-key': this.apiKey, // eslint-disable-line @typescript-eslint/naming-convention
       },
     });
+
+    this.radarApiClient = axios.create({
+      headers: {
+        Authorization: this.appToken,
+      },
+    });
   }
 
   /**
@@ -61,9 +82,17 @@ export abstract class BaseSDK {
    * @returns {Promise<T>} - The API response
    * @template T
    */
+
   protected post<T>(endpoint: string, data: T): Promise<AxiosResponse<T>> {
     const sanitizedData = sanitizeInputFields(data as indexSignatureBaseParams);
     return processApi<T>(() => this.apiClient.post(endpoint, sanitizedData));
+  }
+
+  protected radarPost<T>(data: T): Promise<AxiosResponse<T>> {
+    const sanitizedData = sanitizeInputFields(data as indexSignatureBaseParams);
+    return processApi<T>(() =>
+      this.radarApiClient.post(PREMBLY_SDK_RADAR_ENDPOINT, sanitizedData)
+    );
   }
 
   /**

@@ -12,6 +12,48 @@ export interface indexSignatureBaseParams {
   rc_number?: string | number;
 }
 
+export type radarParams = Required<
+  { phone_number: string | number } | { email: string } | { ip_address: string }
+>;
+
+export interface otherVerificationsParams
+  extends Partial<
+    Pick<
+      indexSignatureBaseParams,
+      'image' | 'number' | 'customer_name' | 'customer_reference'
+    >
+  > {
+  company_number: string;
+  company_name: string;
+  country_code: string;
+  email: string;
+  vin: string;
+}
+
+export interface interpolBanListParams {
+  name: string;
+  image: string;
+  search_mode: Required<'IMAGE' | 'NAME'>;
+}
+
+export interface biometricFaceParams
+  extends Partial<
+    Pick<indexSignatureBaseParams, 'image' | 'first_name' | 'last_name'>
+  > {
+  image_one: string;
+  image_two: string;
+  face_image: string;
+}
+
+export interface documentParams {
+  doc_type: 'PP' | 'DL' | 'ID' | 'RP' | 'UB';
+  doc_country: string;
+  doc_image: string;
+}
+
+export interface faceComparisonParams
+  extends Partial<Pick<biometricFaceParams, 'image_one' | 'image_two'>> {}
+
 export interface bankAcctParams
   extends Pick<
     indexSignatureBaseParams,

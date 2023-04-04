@@ -1,7 +1,5 @@
 export const PREMBLY_SDK_BASEURL = 'https://api.myidentitypay.com';
 
-export const PREMBLY_SDK_RADAR_BASEURL = 'https://radarapi.myidentitypass.com/';
-
 export const PREMBLY_SDK_TEST_BASE_URL = 'https://sandbox.myidentitypass.com';
 
 export const PREMBLY_SDK_TEST_APIKEY = 'https://sandbox.myidentitypass.com';
@@ -16,11 +14,40 @@ export const PREMBLY_SDK_API_V2_PREFIX = 'api/v2/biometrics/merchant';
 export const PREMBLY_SDK_API_VERSION_2 =
   'api/v2/biometrics/merchant/data/verification';
 
+export const PREMBLY_SDK_RADAR_ENDPOINT =
+  'https://radarapi.myidentitypass.com/intelligence/complete-profile-check';
+
 export const VERIFY_MASHUP_BVN_CREDIT_BUREAU_ENDPOINT = `/${PREMBLY_SDK_API_V2_PREFIX}/custom/bvn_w_credit`;
 
 export const VERIFY_MASHUP_BVN_OR_PHONE_ENDPOINT = `/${PREMBLY_SDK_API_V2_PREFIX}/bp/verification`;
 
 export const VERIFY_MASHUP_BVN_NIN_PHONE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bvn_nin_phone`;
+
+export const VERIFY_BIOMETRIC_FACE_AGE_AND_GENDER_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/face/age_and_gender`;
+
+export const VERIFY_BIOMETRIC_FACE_COMPARISON_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/face/comparison`;
+
+export const VERIFY_BIOMETRIC_FACE_ENROLLMENT_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/user/enroll`;
+
+export const VERIFY_BIOMETRIC_FACE_LIVELINESS_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/face/liveliness_check`;
+
+export const VERIFY_BIOMETRIC_FACE_AUTHENTICATION_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/user/authenticate`;
+
+export const VERIFY_BIOMETRIC_ID_FACE_MATCHING_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/user/id_verification`;
+
+export const VERIFY_DOCUMENT_IMAGE_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/document`;
+
+export const VERIFY_GLOBAL_BUSINESS_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/global/company`;
+
+export const VERIFY_GLOBAL_BUSINESS_SEARCH_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/global/company/search`;
+
+export const VERIFY_EMAIL_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/emailage`;
+
+export const VERIFY_CARD_BIN_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/card_bin`;
+
+export const VERIFY_VIN_CAR_CHASIS_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/vehicle/vin`;
+
+export const VERIFY_INTERPOL_BAN_LIST_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/data/ban_list/search`;
 
 export const GET_ALL_BANK_CODES_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_code`;
 

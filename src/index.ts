@@ -9,6 +9,10 @@ import { SouthAfricaDatasVerification } from './apis/data-verification/south-afr
 import { UgandaDatasVerification } from './apis/data-verification/uganda';
 import { RwandaDatasVerification } from './apis/data-verification/rwanda';
 import { MashupDatasVerification } from './apis/data-verification/mashup';
+import { BiometricVerification } from './apis/biometric/face-recognition';
+import { DocumentVerification } from './apis/document-verification';
+import { OtherVerification } from './apis/others';
+import { RadarVerification } from './apis/radar';
 
 class PremblySdk extends BaseSDK {}
 
@@ -21,7 +25,11 @@ interface PremblySdk
     SouthAfricaDatasVerification,
     UgandaDatasVerification,
     RwandaDatasVerification,
-    MashupDatasVerification {}
+    MashupDatasVerification,
+    BiometricVerification,
+    DocumentVerification,
+    OtherVerification,
+    RadarVerification {}
 
 applyMixins(PremblySdk, [
   NgBankDatasVerification,
@@ -33,6 +41,10 @@ applyMixins(PremblySdk, [
   UgandaDatasVerification,
   RwandaDatasVerification,
   MashupDatasVerification,
+  BiometricVerification,
+  DocumentVerification,
+  OtherVerification,
+  RadarVerification,
 ]);
 
 export default PremblySdk;

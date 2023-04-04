@@ -104,7 +104,7 @@ export function sanitizeInputFields<
     // If the value is a string, sanitize it and assign it to the sanitized object
 
     // If the value is a image, assign it to the sanitized object without modifying it
-    if (typeof value === 'string' && key === 'image') {
+    if (typeof value === 'string' && key.includes('image')) {
       sanitizedObj[key] = value as T[typeof key];
       // If the value is a number, assign it to the sanitized object without modifying it
     } else if (typeof value === 'number') {
