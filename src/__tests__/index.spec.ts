@@ -1,5 +1,8 @@
 import PremblySdk from '..';
-import { NIN_BASE_64_TEST_IMAGE } from '../utils/consts';
+import {
+  NIN_BASE_64_TEST_IMAGE,
+  VERIFY_DOC_IMG_64_TST_IMG,
+} from '../utils/consts';
 
 describe('Prembly SDK Test', () => {
   const config = {
@@ -325,6 +328,77 @@ describe('Prembly SDK Test', () => {
         dob: '1985-01-20',
         firstname: 'Khayone',
         lastname: 'Lethabo',
+      });
+      expect(res).toHaveProperty('status', successCode);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+  });
+
+  describe('Verifying Biometric APIs are working', () => {
+    it('verify face liveliness is working', async () => {
+      const res = await premblyClient.checkUserLivenessWithFace({
+        image:
+          'https://res.cloudinary.com/dh3i1wodq/image/upload/v1677955197/face_image_tkmmwz.jpg',
+      });
+      expect(res).toHaveProperty('status', successCode);
+    });
+    it('verify user with face id is working', async () => {
+      const res = await premblyClient.verifyUserWithFaceID({
+        image: 'https://asset.cloudinary.com/dh3i1wodq/a52b7d',
+      });
+      expect(res).toHaveProperty('status', successCode);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+  });
+  describe('Verifying Documents API are working', () => {
+    it('verify a document image API is working', async () => {
+      const res = await premblyClient.verifyDocImage({
+        doc_country: 'GBR',
+        doc_image: VERIFY_DOC_IMG_64_TST_IMG,
+        doc_type: 'PP',
+      });
+      expect(res).toHaveProperty('status', successCode);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+  });
+  describe('Verifying Global API are working', () => {
+    it('verify a company information globally is working', async () => {
+      const res = await premblyClient.verifyBusinessInfo({
+        company_number: 1000010,
+        country_code: 'ng',
+        customer_name: 'test',
+        customer_reference: 'test',
+      });
+      expect(res).toHaveProperty('status', successCode);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+
+    it('search for a company is working', async () => {
+      const res = await premblyClient.searchBusiness({
+        company_name: 'Test Company',
+        country_code: 'ng',
+      });
+      expect(res).toHaveProperty('status', successCode);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+
+    it('verify an email address is working', async () => {
+      const res = await premblyClient.verifyEmail({ email: 'test@mail.com' });
+      expect(res).toHaveProperty('status', successCode);
+    });
+
+    it('verify vin/car identification number is working', async () => {
+      const res = await premblyClient.verifyVinCarChasis({
+        vin: 'AAA00000000',
+      });
+      expect(res).toHaveProperty('status', successCode);
+      expect(res.data).toHaveProperty('response_code', '00');
+    });
+
+    it('verify interpol ban list is working', async () => {
+      const res = await premblyClient.getInterpolBanList({
+        search_mode: 'NAME',
+        name: 'test',
       });
       expect(res).toHaveProperty('status', successCode);
       expect(res.data).toHaveProperty('response_code', '00');

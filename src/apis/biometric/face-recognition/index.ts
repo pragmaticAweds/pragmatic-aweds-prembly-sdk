@@ -41,7 +41,7 @@ export class BiometricVerification extends BaseSDK {
     return this.post(VERIFY_BIOMETRIC_FACE_AUTHENTICATION_ENDPOINT, data);
   }
 
-  verifyUserWithID(data: Required<Pick<biometricFaceParams, 'image'>>) {
+  verifyUserWithFaceID(data: Required<Pick<biometricFaceParams, 'image'>>) {
     return this.post(VERIFY_BIOMETRIC_ID_FACE_MATCHING_ENDPOINT, data);
   }
 }

@@ -23,7 +23,7 @@ export interface otherVerificationsParams
       'image' | 'number' | 'customer_name' | 'customer_reference'
     >
   > {
-  company_number: string;
+  company_number: string | number;
   company_name: string;
   country_code: string;
   email: string;
@@ -31,9 +31,9 @@ export interface otherVerificationsParams
 }
 
 export interface interpolBanListParams {
-  name: string;
-  image: string;
   search_mode: Required<'IMAGE' | 'NAME'>;
+  name?: string;
+  image?: string;
 }
 
 export interface biometricFaceParams

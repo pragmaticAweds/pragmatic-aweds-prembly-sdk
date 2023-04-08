@@ -3,8 +3,8 @@ import { AxiosRequestConfig } from 'axios';
 export type Config = Partial<{
   apiKey: string;
   appId: string;
-  baseUrl: string;
   appToken: string;
+  baseUrl: string;
   env: string;
 }> &
   Required<{ apiKey: string } | { appId: string } | { appToken: string }>;

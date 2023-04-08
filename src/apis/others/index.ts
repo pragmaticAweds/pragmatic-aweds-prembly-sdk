@@ -10,7 +10,7 @@ import {
 import { BaseSDK } from '../base-config';
 
 export class OtherVerification extends BaseSDK {
-  verifyBusinessGlobally(
+  verifyBusinessInfo(
     data: Required<
       Pick<
         otherVerificationsParams,
@@ -24,7 +24,7 @@ export class OtherVerification extends BaseSDK {
     return this.post(VERIFY_GLOBAL_BUSINESS_ENDPOINT, data);
   }
 
-  findBusinessGlobally(
+  searchBusiness(
     data: Required<
       Pick<otherVerificationsParams, 'company_name' | 'country_code'>
     >
@@ -36,15 +36,16 @@ export class OtherVerification extends BaseSDK {
     return this.post(VERIFY_EMAIL_ENDPOINT, data);
   }
 
-  verifyCardBin(data: Required<Pick<otherVerificationsParams, 'number'>>) {
-    return this.post(VERIFY_CARD_BIN_ENDPOINT, data);
-  }
-
   verifyVinCarChasis(data: Required<Pick<otherVerificationsParams, 'vin'>>) {
     return this.post(VERIFY_VIN_CAR_CHASIS_ENDPOINT, data);
   }
 
   getInterpolBanList(data: interpolBanListParams) {
     return this.post(VERIFY_INTERPOL_BAN_LIST_ENDPOINT, data);
+  }
+
+  //not tested
+  verifyCardBin(data: Required<Pick<otherVerificationsParams, 'number'>>) {
+    return this.post(VERIFY_CARD_BIN_ENDPOINT, data);
   }
 }
