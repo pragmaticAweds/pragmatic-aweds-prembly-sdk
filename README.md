@@ -58,4 +58,3 @@ env = 'default is set to test'; //should be changed to live
 Using the library
 
 - Add your api key and app Id.
-- Set env to live.
