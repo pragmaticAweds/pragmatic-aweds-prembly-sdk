@@ -6,17 +6,17 @@ The Prembly Identitypass SDK is a library that allows you to easily integrate ve
 
 The Prembly Identitypass SDK offers the following features:
 
-- Data verification: Verify the authenticity of data from different countries and sources, including bank-datas, government-issued IDs, credit reports.
+- Data verification: verify the authenticity of datas from different countries and sources such as stamp duty, plate numbers, NIN, international passport, bvn, government-issued IDs, credit reports etc.
 
-- Global business verification: Verify the authenticity of a range of documents, including passports, driver's licenses, and utility bills.
+- Global business verification: get essential company information you are doing/want to have a business with by verifying their authenticity, as well as for marketing and sales purposes by searching using company name, customer details, email, or country code, adhering to ISO-3166-1 Alpha-2 standards, and biometric-based registration verification.
 
-- Document verification: Verify the authenticity of a range of documents, including passports, driver's licenses, and utility bills.
+- Document verification: you can easily add document verification to your software applications by using document image verification method. It's a simple and efficient way to automate document verification across regions like Asia-Pacific (APAC), Europe, Middle East, and Africa (EMEA), North America (NA), and South America (SA).
 
-- Biometrics: Verify the identity of your users using biometric data, such as fingerprints and facial recognition.
+- Biometrics: Enroll and authenticate your users by utilizing facial recognition method. This allows you to register and verify your users' identities using their unique facial features.
 
-- Identity Radar: Verify the identity of your users using biometric data, such as fingerprints and facial recognition.
+- Identity Radar: prevents fraud in digital businesses using quality data and our AI engine. Choose our Fraud Detection & Prevention solution for peace of mind.
 
-- General: Verify the identity of your users using biometric data, such as fingerprints and facial recognition.
+- General: you can also use other verification services.
 
 ## Requirements
 
@@ -68,6 +68,14 @@ premblyClient.getAllNgBankCodes().then((res) => console.log(res));
 
 ## Documentation
 
-Using the library
+### Data Verification Methods
 
-- Add your api key and app Id.
+The data verification methods are seperated based on the country and are listed below:
+
+#### Nigeria
+
+| Sn  | Method Name | Method | Params | Description |
+| --- | ----------- | ------ | ------ | ----------- |
+
+| 1 | Stamp Duty | verifyNgStampDuty | number & customer_name | <a href="https://docs.prembly.com/docs/stamp-duty-1" target="_blank">View</a> |
+| 2 | Vehicle Plate No | verifyNgVehiclePlateNo | vehicle_number | <a href="https://docs.prembly.com/docs/plate-number-verification" target="_blank">View</a> |

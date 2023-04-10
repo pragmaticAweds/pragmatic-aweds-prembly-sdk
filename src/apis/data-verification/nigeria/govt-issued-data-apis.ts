@@ -136,7 +136,7 @@ export class NgGovtIssuedDatasVerification extends BaseSDK {
     return this.post(VERIFY_TIN_ENDPOINT, datas);
   }
 
-  verifyNgVehicle(datas: vehiclePlateNoParams) {
+  verifyNgVehiclePlateNo(datas: vehiclePlateNoParams) {
     return this.post(VERIFY_VEHICLE_ENDPOINT, datas);
   }
 

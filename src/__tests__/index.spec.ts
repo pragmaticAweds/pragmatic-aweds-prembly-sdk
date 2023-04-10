@@ -247,7 +247,7 @@ describe('Prembly SDK Test', () => {
       expect(res.data).toHaveProperty('response_code', '00');
     });
     it('verify Nigeria vehicle ', async () => {
-      const res = await premblyClient.verifyNgVehicle({
+      const res = await premblyClient.verifyNgVehiclePlateNo({
         vehicle_number: 'AAA000000',
       });
       expect(res).toHaveProperty('status', successCode);
