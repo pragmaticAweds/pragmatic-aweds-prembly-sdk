@@ -74,8 +74,7 @@ The data verification methods are seperated based on the country and are listed 
 
 #### Nigeria
 
-| Sn  | Method Name | Method | Params | Description |
+| Sn  | Method Name | Method | Fields | Description |
 | --- | ----------- | ------ | ------ | ----------- |
-
 | 1 | Stamp Duty | verifyNgStampDuty | number & customer_name | <a href="https://docs.prembly.com/docs/stamp-duty-1" target="_blank">View</a> |
 | 2 | Vehicle Plate No | verifyNgVehiclePlateNo | vehicle_number | <a href="https://docs.prembly.com/docs/plate-number-verification" target="_blank">View</a> |
