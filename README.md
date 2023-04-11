@@ -72,7 +72,7 @@ premblyClient.getAllNgBankCodes().then((res) => console.log(res));
 
 The data verification methods are seperated based on the country and are listed below:
 
-#### Nigeria
+### Nigeria
 
 | Sn  | Method Name           | Method                 | Fields                 | Description                                                                                |
 | --- | --------------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------------------------ |
