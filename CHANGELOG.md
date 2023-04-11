@@ -1,5 +1,16 @@
 # prembly-verify-sdk
 
+## 0.1.0
+
+### Minor Changes
+
+- 234707c: refactor and create a seperate instances
+- 3187db5: Added multiple APIs and eslint, woth test
+
+### Patch Changes
+
+- 7fa2e46: Created Prembly Sdk with methods
+
 ## 0.0.1
 
 ### Patch Changes
