@@ -152,7 +152,7 @@ export class NgVerificationService extends BaseSDK {
     return this.post(VERIFY_PHONE_NUMBER_BASIC_ENDPOINT, datas);
   }
 
-  phoneNoFull(datas: Pick<indexSignatureBaseParams, 'number'>) {
+  phoneNoAdvance(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_PHONE_NUMBER_FULL_ENDPOINT, datas);
   }
 

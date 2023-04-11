@@ -6,18 +6,18 @@ import {
   VERIFY_MASHUP_BVN_OR_PHONE_ENDPOINT,
 } from '@/src/utils/consts';
 
-export class MashupDatasVerification extends BaseSDK {
+export class MashupVerificationService extends BaseSDK {
   //newly added but not tested
 
-  verifyBvnWithCreditBureauMashup(datas: Pick<mashupParams, 'number'>) {
+  bvnWithCreditBureauMashup(datas: Pick<mashupParams, 'number'>) {
     return this.post(VERIFY_MASHUP_BVN_CREDIT_BUREAU_ENDPOINT, datas);
   }
 
-  verifyBvnOrPhoneMashup(datas: mashupParams) {
+  bvnOrPhoneMashup(datas: mashupParams) {
     return this.post(VERIFY_MASHUP_BVN_OR_PHONE_ENDPOINT, datas);
   }
 
-  verifyBvnOrPhoneOrNinMashup(datas: Pick<mashupParams, 'number'>) {
+  bvnOrPhoneOrNinMashup(datas: Pick<mashupParams, 'number'>) {
     return this.post(VERIFY_MASHUP_BVN_NIN_PHONE_ENDPOINT, datas);
   }
 }

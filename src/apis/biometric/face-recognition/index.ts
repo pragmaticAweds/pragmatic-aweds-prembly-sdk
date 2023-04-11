@@ -9,7 +9,7 @@ import {
 } from '@/src/utils/consts';
 import { BaseSDK } from '../../base-config';
 
-export class BiometricVerification extends BaseSDK {
+export class BiometricVerificationService extends BaseSDK {
   getUserAgeandGender(data: Required<Pick<biometricFaceParams, 'image'>>) {
     return this.post(VERIFY_BIOMETRIC_FACE_AGE_AND_GENDER_ENDPOINT, data);
   }
@@ -41,7 +41,7 @@ export class BiometricVerification extends BaseSDK {
     return this.post(VERIFY_BIOMETRIC_FACE_AUTHENTICATION_ENDPOINT, data);
   }
 
-  verifyUserWithFaceID(data: Required<Pick<biometricFaceParams, 'image'>>) {
+  userWithFaceID(data: Required<Pick<biometricFaceParams, 'image'>>) {
     return this.post(VERIFY_BIOMETRIC_ID_FACE_MATCHING_ENDPOINT, data);
   }
 }

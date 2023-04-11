@@ -8,24 +8,22 @@ import {
 } from '@/src/utils/consts';
 import { ghVotersCardParams, indexSignatureBaseParams } from '@/src/types';
 
-export class GhanaDatasVerification extends BaseSDK {
-  verifyGhIntlPassport(datas: Pick<indexSignatureBaseParams, 'number'>) {
+export class GhanaVerificationService extends BaseSDK {
+  intlPassport(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_INTERNATIONAL_PASSPORT_GHANA_ENDPOINT, datas);
   }
 
   //These APis are not tested yet
 
-  verifyGhVotersCard(datas: ghVotersCardParams) {
+  votersCard(datas: ghVotersCardParams) {
     return this.post(VERIFY_VOTERS_CARD_GHANA_ENDPOINT, datas);
   }
 
-  verifyGhDriversLicense(
-    datas: Pick<indexSignatureBaseParams, 'dob' | 'number'>
-  ) {
+  driversLicense(datas: Pick<indexSignatureBaseParams, 'dob' | 'number'>) {
     return this.post(VERIFY_DRIVERS_LICENSE_GHANA_ENDPOINT, datas);
   }
 
-  verifyGhSSNIT(datas: Pick<indexSignatureBaseParams, 'number'>) {
+  ssnit(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_SSNIT_GHANA_ENDPOINT, datas);
   }
 }

@@ -8,9 +8,9 @@ import {
   VERIFY_SERIAL_NUMBER_KENYA_ENDPOINT,
 } from '@/src/utils/consts';
 
-export class KenyaDatasVerification extends BaseSDK {
+export class KenyaVerificationService extends BaseSDK {
   //These APi are not tested yet
-  verifyKeNationalIdentity(
+  nationalIdentity(
     datas: Omit<
       kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
@@ -19,7 +19,7 @@ export class KenyaDatasVerification extends BaseSDK {
     return this.post(VERIFY_NATIONAL_IDENTITY_KENYA_ENDPOINT, datas);
   }
 
-  verifyKeNIN(
+  nin(
     datas: Pick<
       kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
@@ -28,7 +28,7 @@ export class KenyaDatasVerification extends BaseSDK {
     return this.post(VERIFY_NATIONAL_IDENTITY_NUMBER_KENYA_ENDPOINT, datas);
   }
 
-  verifyKePassport(
+  passport(
     datas: Pick<
       kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
@@ -37,7 +37,7 @@ export class KenyaDatasVerification extends BaseSDK {
     return this.post(VERIFY_PASSPORT_KENYA_ENDPOINT, datas);
   }
 
-  verifyKeSerialNo(
+  serialNo(
     datas: Pick<
       kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
@@ -46,7 +46,7 @@ export class KenyaDatasVerification extends BaseSDK {
     return this.post(VERIFY_SERIAL_NUMBER_KENYA_ENDPOINT, datas);
   }
 
-  verifyKeDriversLicense(
+  driversLicense(
     datas: Pick<
       kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'

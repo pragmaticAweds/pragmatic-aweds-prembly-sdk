@@ -9,8 +9,8 @@ import {
 } from '@/src/utils/consts';
 import { BaseSDK } from '../base-config';
 
-export class OtherVerification extends BaseSDK {
-  verifyBusinessInfo(
+export class GlobalVerificationService extends BaseSDK {
+  compInfo(
     data: Required<
       Pick<
         otherVerificationsParams,
@@ -32,20 +32,20 @@ export class OtherVerification extends BaseSDK {
     return this.post(VERIFY_GLOBAL_BUSINESS_SEARCH_ENDPOINT, data);
   }
 
-  verifyEmail(data: Required<Pick<otherVerificationsParams, 'email'>>) {
+  email(data: Required<Pick<otherVerificationsParams, 'email'>>) {
     return this.post(VERIFY_EMAIL_ENDPOINT, data);
   }
 
-  verifyVinCarChasis(data: Required<Pick<otherVerificationsParams, 'vin'>>) {
+  vinCarChasis(data: Required<Pick<otherVerificationsParams, 'vin'>>) {
     return this.post(VERIFY_VIN_CAR_CHASIS_ENDPOINT, data);
   }
 
-  getInterpolBanList(data: interpolBanListParams) {
+  interpolBanList(data: interpolBanListParams) {
     return this.post(VERIFY_INTERPOL_BAN_LIST_ENDPOINT, data);
   }
 
   //not tested
-  verifyCardBin(data: Required<Pick<otherVerificationsParams, 'number'>>) {
+  cardBin(data: Required<Pick<otherVerificationsParams, 'number'>>) {
     return this.post(VERIFY_CARD_BIN_ENDPOINT, data);
   }
 }

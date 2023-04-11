@@ -5,9 +5,9 @@ import {
 } from '@/src/utils/consts';
 import { BaseSDK } from '../../base-config';
 
-export class SouthAfricaDatasVerification extends BaseSDK {
+export class SouthAfricaVerificationService extends BaseSDK {
   //These APi are not tested yet
-  verifySaNationalIdentity(
+  nationalIdentity(
     datas: Omit<
       kyNationalIdentityParams,
       'number' | 'customer_name' | 'customer_reference'
@@ -16,7 +16,7 @@ export class SouthAfricaDatasVerification extends BaseSDK {
     return this.post(VERIFY_NATIONAL_IDENTITY_SOUTH_AFRICA_ENDPOINT, datas);
   }
 
-  verifySaBusiness(datas: saBusParams) {
+  business(datas: saBusParams) {
     return this.post(VERIFY_BUSINESS_SOUTH_AFRICA_ENDPOINT, datas);
   }
 }

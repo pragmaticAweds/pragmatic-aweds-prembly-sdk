@@ -1,64 +1,26 @@
-// import { applyMixins } from './utils';
 import { BaseSDK } from './apis/base-config';
-import { NgVerificationService } from './apis/data-verification/nigeria';
+import DataVerificationService from '@/src/apis/data-verification';
 import { Config } from './types/config-types';
-// import  from '@/src/apis/data-verification/index';
-// import { NgGovtIssuedDatasVerification } from './apis/data-verification/nigeria/govt-issued-data-apis';
-// import { GhanaDatasVerification } from './apis/data-verification/ghana';
-// import { KenyaDatasVerification } from './apis/data-verification/kenya';
-// import { SierraLeoneDatasVerification } from './apis/data-verification/sierra-leone';
-// import { SouthAfricaDatasVerification } from './apis/data-verification/south-africa';
-// import { UgandaDatasVerification } from './apis/data-verification/uganda';
-// import { RwandaDatasVerification } from './apis/data-verification/rwanda';
-// import { MashupDatasVerification } from './apis/data-verification/mashup';
-// import { BiometricVerification } from './apis/biometric/face-recognition';
-// import { DocumentVerification } from './apis/document-verification';
-// import { OtherVerification } from './apis/others';
-// import { RadarVerification } from './apis/radar';
+import { GlobalVerificationService } from './apis/global';
+import { DocumentVerificationService } from './apis/document-verification';
+import { BiometricVerificationService } from './apis/biometric/face-recognition';
+import { RadarVerificationService } from './apis/radar';
 
-class PremblySdk extends BaseSDK {
+class PremblyVerificationService extends BaseSDK {
+  public globalVerification: GlobalVerificationService;
+  public documentVerification: DocumentVerificationService;
+  public biometricVerification: BiometricVerificationService;
   protected config: Config;
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  public dataverification: NgVerificationService;
 
   constructor(config: Config) {
     super(config);
     this.config = config;
-    this.dataverification = new NgVerificationService(config);
+    this.globalVerification = new GlobalVerificationService(config);
+    this.documentVerification = new DocumentVerificationService(config);
+    this.biometricVerification = new BiometricVerificationService(config);
   }
 }
 
-// interface PremblySdk
-//   extends NgDatasVerification,
-//     NgGovtIssuedDatasVerification,
-//     GhanaDatasVerification,
-//     KenyaDatasVerification,
-//     SierraLeoneDatasVerification,
-//     SouthAfricaDatasVerification,
-//     UgandaDatasVerification,
-//     RwandaDatasVerification,
-//     MashupDatasVerification,
-//     BiometricVerification,
-//     DocumentVerification,
-//     OtherVerification,
-//     RadarVerification {}
+export { DataVerificationService, RadarVerificationService };
 
-// applyMixins(PremblySdk, [
-//   NgBankDatasVerification,
-//   NgGovtIssuedDatasVerification,
-//   GhanaDatasVerification,
-//   KenyaDatasVerification,
-//   SierraLeoneDatasVerification,
-//   SouthAfricaDatasVerification,
-//   UgandaDatasVerification,
-//   RwandaDatasVerification,
-//   MashupDatasVerification,
-//   BiometricVerification,
-//   DocumentVerification,
-//   OtherVerification,
-//   RadarVerification,
-// ]);
-
-export { NgVerificationService };
-
-export default PremblySdk;
+export default PremblyVerificationService;

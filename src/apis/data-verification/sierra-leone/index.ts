@@ -5,9 +5,9 @@ import {
 } from '@/src/utils/consts';
 import { BaseSDK } from '../../base-config';
 
-export class SierraLeoneDatasVerification extends BaseSDK {
+export class SierraLeoneVerificationService extends BaseSDK {
   //   These APi are not tested yet
-  verifySlDriversLicense(data: slDriversLicenseParams) {
+  driversLicense(data: slDriversLicenseParams) {
     const { search_mode, dob, firstname, lastname, number } = data;
 
     const newData: slDriversLicenseParams =
@@ -18,7 +18,7 @@ export class SierraLeoneDatasVerification extends BaseSDK {
     return this.post(VERIFY_DRIVERS_LICENSE_SIERRA_LEONE_ENDPOINT, newData);
   }
 
-  verifySlVotersCard(data: slDriversLicenseParams) {
+  votersCard(data: slDriversLicenseParams) {
     const { search_mode, dob, firstname, lastname, middlename, number } = data;
 
     const newData: slDriversLicenseParams =

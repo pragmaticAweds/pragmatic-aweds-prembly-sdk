@@ -5,13 +5,13 @@ import {
 } from '@/src/utils/consts';
 import { BaseSDK } from '../../base-config';
 
-export class RwandaDatasVerification extends BaseSDK {
+export class RwandaVerificationService extends BaseSDK {
   //These APi are not tested yet
-  verifyRwNID(datas: Pick<indexSignatureBaseParams, 'number'>) {
+  nid(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_NID_RWANDA_ENDPOINT, datas);
   }
 
-  verifyRwPassport(datas: Pick<indexSignatureBaseParams, 'number'>) {
+  passport(datas: Pick<indexSignatureBaseParams, 'number'>) {
     return this.post(VERIFY_PASSPORT_RWANDA_ENDPOINT, datas);
   }
 }
