@@ -60,6 +60,7 @@ export abstract class BaseSDK {
      * The AxiosInstance used to make API requests
      * @type {AxiosInstance}
      */
+
     this.apiClient = axios.create({
       baseURL: config.env === 'live' ? envUrl[config.env] : envUrl['test'],
       headers: {

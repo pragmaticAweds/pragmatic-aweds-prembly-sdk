@@ -1,5 +1,6 @@
 import { BaseSDK } from '../../base-config';
 import { indexSignatureBaseParams, bankAcctParams } from '@/src/types';
+
 import {
   GET_ALL_BANK_CODES_ENDPOINT,
   VERIFY_BANK_ACCOUNT_ADVANCE_ENDPOINT,
@@ -14,7 +15,7 @@ import {
  * Provides methods for verifying bank account details and BVN (Bank Verification Number) using the API.
  * @extends BaseSDK
  */
-export class NgBankDatasVerification extends BaseSDK {
+export class NgDatasVerification extends BaseSDK {
   /**
    * Retrieves all bank codes.
    * @
