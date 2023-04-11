@@ -74,7 +74,10 @@ The data verification methods are seperated based on the country and are listed 
 
 #### Nigeria
 
-| Sn  | Method Name      | Method                 | Params                 | Description                                                                                |
-| --- | ---------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| 1   | Stamp Duty       | verifyNgStampDuty      | number & customer_name | <a href="https://docs.prembly.com/docs/stamp-duty-1" target="_blank">View</a>              |
-| 2   | Vehicle Plate No | verifyNgVehiclePlateNo | vehicle_number         | <a href="https://docs.prembly.com/docs/plate-number-verification" target="_blank">View</a> |
+| Sn  | Method Name           | Method                 | Fields                 | Description                                                                                |
+| --- | --------------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------------------------ |
+| 1   | Stamp Duty            | verifyNgStampDuty      | number & customer_name | <a href="https://docs.prembly.com/docs/stamp-duty-1" target="_blank">View</a>              |
+| 2   | Vehicle Plate No      | verifyNgVehiclePlateNo | vehicle_number         | <a href="https://docs.prembly.com/docs/plate-number-verification" target="_blank">View</a> |
+| 3   | Verify BVN 2.0 + Face | verifyNgBvnWithFace    | number & image         | <a href="https://docs.prembly.com/docs/bvn-20-face-validation" target="_blank">View</a>    |
+| 4   | Verify BVN 2.0        | verifyNgBvnFull        | number                 | <a href="https://docs.prembly.com/docs/bvn-20" target="_blank">View</a>                    |
+| 5   | Verify BVN 1.0        | verifyNgBvn            | number                 | <a href="https://docs.prembly.com/docs/bvn-10" target="_blank">View</a>                    |
