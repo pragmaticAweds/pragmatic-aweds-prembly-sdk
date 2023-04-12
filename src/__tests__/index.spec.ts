@@ -339,14 +339,14 @@ describe('Errors are handled', () => {
   describe('Verifying Biometric APIs are working', () => {
     it('verify face liveliness is working', async () => {
       const res =
-        await premblyClient.biometricVerification.checkUserLivenessWithFace({
+        await premblyClient.biometricService.checkUserLivenessWithFace({
           image:
             'https://res.cloudinary.com/dh3i1wodq/image/upload/v1677955197/face_image_tkmmwz.jpg',
         });
       expect(res).toHaveProperty('status', successCode);
     });
     it('verify user with face id is working', async () => {
-      const res = await premblyClient.biometricVerification.userWithFaceID({
+      const res = await premblyClient.biometricService.userWithFaceID({
         image: 'https://asset.cloudinary.com/dh3i1wodq/a52b7d',
       });
       expect(res).toHaveProperty('status', successCode);
@@ -355,7 +355,7 @@ describe('Errors are handled', () => {
   });
   describe('Verifying Documents API are working', () => {
     it('verify a document image API is working', async () => {
-      const res = await premblyClient.documentVerification.docImage({
+      const res = await premblyClient.documentService.docImage({
         doc_country: 'GBR',
         doc_image: VERIFY_DOC_IMG_64_TST_IMG,
         doc_type: 'PP',
@@ -366,7 +366,7 @@ describe('Errors are handled', () => {
   });
   describe('Verifying Global API are working', () => {
     it('verify a company information globally is working', async () => {
-      const res = await premblyClient.globalVerification.compInfo({
+      const res = await premblyClient.globalService.compInfo({
         company_number: 1000010,
         country_code: 'ng',
         customer_name: 'test',
@@ -377,7 +377,7 @@ describe('Errors are handled', () => {
     });
 
     it('search for a company is working', async () => {
-      const res = await premblyClient.globalVerification.searchBusiness({
+      const res = await premblyClient.globalService.searchBusiness({
         company_name: 'Test Company',
         country_code: 'ng',
       });
@@ -386,14 +386,14 @@ describe('Errors are handled', () => {
     });
 
     it('verify an email address is working', async () => {
-      const res = await premblyClient.globalVerification.email({
+      const res = await premblyClient.globalService.email({
         email: 'test@mail.com',
       });
       expect(res).toHaveProperty('status', successCode);
     });
 
     it('verify vin/car identification number is working', async () => {
-      const res = await premblyClient.globalVerification.vinCarChasis({
+      const res = await premblyClient.globalService.vinCarChasis({
         vin: 'AAA00000000',
       });
       expect(res).toHaveProperty('status', successCode);
@@ -401,7 +401,7 @@ describe('Errors are handled', () => {
     });
 
     it('verify interpol ban list is working', async () => {
-      const res = await premblyClient.globalVerification.interpolBanList({
+      const res = await premblyClient.globalService.interpolBanList({
         search_mode: 'NAME',
         name: 'test',
       });

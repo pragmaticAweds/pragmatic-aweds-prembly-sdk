@@ -7,17 +7,17 @@ import { BiometricVerificationService } from './apis/biometric/face-recognition'
 import { RadarVerificationService } from './apis/radar';
 
 class PremblyVerificationService extends BaseSDK {
-  public globalVerification: GlobalVerificationService;
-  public documentVerification: DocumentVerificationService;
-  public biometricVerification: BiometricVerificationService;
+  public globalService: GlobalVerificationService;
+  public documentService: DocumentVerificationService;
+  public biometricService: BiometricVerificationService;
   protected config: Config;
 
   constructor(config: Config) {
     super(config);
     this.config = config;
-    this.globalVerification = new GlobalVerificationService(config);
-    this.documentVerification = new DocumentVerificationService(config);
-    this.biometricVerification = new BiometricVerificationService(config);
+    this.globalService = new GlobalVerificationService(config);
+    this.documentService = new DocumentVerificationService(config);
+    this.biometricService = new BiometricVerificationService(config);
   }
 }
 
