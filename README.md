@@ -30,19 +30,19 @@ To install the Prembly IdentityPass SDK, you can use npm, yarn and pnpm.
 Using npm:
 
 ```ts
-npm install prembly-sdk
+npm install prembly-identitypass-sdk
 ```
 
 Using yarn:
 
 ```ts
-yarn add prembly-sdk
+yarn add prembly-identitypass-sdk
 ```
 
 Using pnpm:
 
 ```ts
-pnpm install prembly-sdk
+pnpm install prembly-identitypass-sdk
 ```
 
 ## Configuration
@@ -50,7 +50,7 @@ pnpm install prembly-sdk
 After installing the app, you can import the SDK to use as follow:
 
 ```ts
-import PremblyVerificationService,{ DataVerificationService } from 'prembly-sdk';
+import PremblyVerificationService,{ DataVerificationService } from 'prembly-identitypass-sdk';
 
 const config = {
 apiKey = 'your_prembly_app_api_key';
