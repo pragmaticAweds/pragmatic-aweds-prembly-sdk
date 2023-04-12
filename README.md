@@ -88,20 +88,7 @@ const premblyRadarVerifier = new RadarVerificationService(config)
 
 ## Documentation
 
-You can access all the verification services from the prembly instance aside from the data verification service that has its own instance.
-
-Each verification service can be accessed by their acronym as follow:
-
-| Sn  | Country      | Acronym       |
-| --- | ------------ | ------------- |
-| 1   | Nigeria      | ngService     |
-| 2   | Ghana        | ghService     |
-| 3   | Kenya        | kyService     |
-| 4   | Rwanda       | rwService     |
-| 5   | Sierra Leone | slService     |
-| 6   | South Africa | saService     |
-| 7   | Uganda       | ugService     |
-| 8   | Mashup       | mashupService |
+You can access all the verification services from the prembly instance aside from the data verification and radar service that has its own instance.
 
 ### Data Verification
 
@@ -117,3 +104,13 @@ Each country service can be accessed by their acronym as follow:
 | 6   | South Africa | saService     |
 | 7   | Uganda       | ugService     |
 | 8   | Mashup       | mashupService |
+
+### Other verification services
+
+Each verification service can be accessed by their acronym as follow:
+
+| Sn  | Country      | Acronym          |
+| --- | ------------ | -------------    |
+| 1   | Biometric    | biometricService |
+| 2   | Document     | documentService  |
+| 3   | Global       | globalService    |
