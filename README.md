@@ -50,7 +50,7 @@ pnpm install prembly-identitypass-sdk
 After installing the app, you can import the SDK to use as follow:
 
 ```ts
-import PremblyVerificationService,{ DataVerificationService } from 'prembly-identitypass-sdk';
+import PremblyVerificationService,{ DataVerificationService, RadarVerificationService } from 'prembly-identitypass-sdk';
 
 const config = {
 apiKey = 'your_prembly_app_api_key';
@@ -61,7 +61,7 @@ env = 'default is set to test'; //should be changed to live
 //creating an instance
 const premblyVerifier = new PremblyVerificationService(config);
 
-//you can access all prembly verification service here with their method aside data-verification which has its own instance.
+//you can access all prembly verification service here with their method aside data-verification and radar which has its own instance.
 
 premblyVerifier.scope.method.then((res) => console.log(res));
 
@@ -77,13 +77,35 @@ eg: verify bvn data method in Nigeria service
 
 premblyDataVerifier.ngService.bvn({ number: XXXX XXXX XXXX XXXX }).then((res) => console.log(res))
 
+
+//for radar, its different you have to create an instance of its own as follow:
+
+const config = {appToken: 'your_prembly_apptoken'}
+
+const premblyRadarVerifier = new RadarVerificationService(config)
+
 ```
 
 ## Documentation
 
+You can access all the verification services from the prembly instance aside from the data verification service that has its own instance.
+
+Each verification service can be accessed by their acronym as follow:
+
+| Sn  | Country      | Acronym       |
+| --- | ------------ | ------------- |
+| 1   | Nigeria      | ngService     |
+| 2   | Ghana        | ghService     |
+| 3   | Kenya        | kyService     |
+| 4   | Rwanda       | rwService     |
+| 5   | Sierra Leone | slService     |
+| 6   | South Africa | saService     |
+| 7   | Uganda       | ugService     |
+| 8   | Mashup       | mashupService |
+
 ### Data Verification
 
-#### Each country service can be accessed by their acronym as follow:
+Each country service can be accessed by their acronym as follow:
 
 | Sn  | Country      | Acronym       |
 | --- | ------------ | ------------- |
