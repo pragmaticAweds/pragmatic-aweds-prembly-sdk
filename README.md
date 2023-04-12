@@ -84,6 +84,9 @@ const config = {appToken: 'your_prembly_apptoken'}
 
 const premblyRadarVerifier = new RadarVerificationService(config)
 
+//to use it
+
+premblyRadarVerifier.radar({your field}).then(res => console.log(res))
 ```
 
 ## Documentation
@@ -109,7 +112,7 @@ Each country service can be accessed by their acronym as follow:
 
 Each verification service can be accessed by their acronym as follow:
 
-| Sn  | Country      | Acronym          |
+| Sn  | Name         | Acronym          |
 | --- | ------------ | -------------    |
 | 1   | Biometric    | biometricService |
 | 2   | Document     | documentService  |
