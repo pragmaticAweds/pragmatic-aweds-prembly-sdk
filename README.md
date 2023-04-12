@@ -50,7 +50,7 @@ pnpm install prembly-sdk
 After installing the app, you can import the SDK to use as follow:
 
 ```ts
-import Prembly from 'prembly-sdk';
+import PremblyVerificationService,{ DataVerificationService } from 'prembly-sdk';
 
 const config = {
 apiKey = 'your_prembly_app_api_key';
@@ -59,25 +59,39 @@ env = 'default is set to test'; //should be changed to live
 }
 
 //creating an instance
-const premblyClient = new Prembly(config);
+const premblyVerifier = new PremblyVerificationService(config);
 
-//calling one of the sdk method
-premblyClient.getAllNgBankCodes().then((res) => console.log(res));
+//you can access all prembly verification service here with their method aside data-verification which has its own instance.
+
+premblyVerifier.scope.method.then((res) => console.log(res));
+
+//for data verification its different you have to create an instance of its own as follow:
+
+const premblyDataVerifier = new DataVerificationService(config)
+
+//after setting the config, you can access different country and their data verification service as shown:
+
+premblyDataVerifier.countryService.method.then((res)=> console.log(res))
+
+eg: verify bvn data method in Nigeria service
+
+premblyDataVerifier.ngService.bvn({ number: XXXX XXXX XXXX XXXX }).then((res) => console.log(res))
 
 ```
 
 ## Documentation
 
-### Data Verification Methods
+### Data Verification
 
-The data verification methods are seperated based on the country and are listed below:
+#### Each country service can be accessed by their acronym as follow:
 
-### Nigeria
-
-| Sn  | Method Name           | Method                 | Fields                 | Description                                                                                |
-| --- | --------------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| 1   | Stamp Duty            | verifyNgStampDuty      | number & customer_name | <a href="https://docs.prembly.com/docs/stamp-duty-1" target="_blank">View</a>              |
-| 2   | Vehicle Plate No      | verifyNgVehiclePlateNo | vehicle_number         | <a href="https://docs.prembly.com/docs/plate-number-verification" target="_blank">View</a> |
-| 3   | Verify BVN 2.0 + Face | verifyNgBvnWithFace    | number & image         | <a href="https://docs.prembly.com/docs/bvn-20-face-validation" target="_blank">View</a>    |
-| 4   | Verify BVN 2.0        | verifyNgBvnFull        | number                 | <a href="https://docs.prembly.com/docs/bvn-20" target="_blank">View</a>                    |
-| 5   | Verify BVN 1.0        | verifyNgBvn            | number                 | <a href="https://docs.prembly.com/docs/bvn-10" target="_blank">View</a>                    |
+| Sn  | Country      | Acronym       |
+| --- | ------------ | ------------- |
+| 1   | Nigeria      | ngService     |
+| 2   | Ghana        | ghService     |
+| 3   | Kenya        | kyService     |
+| 4   | Rwanda       | rwService     |
+| 5   | Sierra Leone | slService     |
+| 6   | South Africa | saService     |
+| 7   | Uganda       | ugService     |
+| 8   | Mashup       | mashupService |

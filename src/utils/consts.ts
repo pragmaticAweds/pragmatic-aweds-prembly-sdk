@@ -49,6 +49,14 @@ export const VERIFY_VIN_CAR_CHASIS_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/veh
 
 export const VERIFY_INTERPOL_BAN_LIST_ENDPOINT = `${PREMBLY_SDK_API_V2_PREFIX}/data/ban_list/search`;
 
+export const GET_WALLET_BALANCE_ENDPOINT =
+  'api/v1/biometrics/merchant/data/wallet/balance';
+
+export const GET_VERIFICATION_STATUS_ENDPOINT = `${PREMBLY_SDK_API_VERSION_2}/status`;
+
+export const GET_ALL_VERIFICATION_ENDPOINT =
+  'api/v2/biometrics/api/endpoint/get';
+
 export const GET_ALL_BANK_CODES_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_code`;
 
 export const VERIFY_BANK_ACCOUNT_ENDPOINT = `/${PREMBLY_SDK_API_VERSION_2}/bank_account`;
