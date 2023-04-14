@@ -65,18 +65,6 @@ const premblyVerifier = new PremblyVerificationService(config);
 
 premblyVerifier.scope.method.then((res) => console.log(res));
 
-//for data verification its different you have to create an instance of its own as follow:
-
-const premblyDataVerifier = new DataVerificationService(config)
-
-//after setting the config, you can access different country and their data verification service as shown:
-
-premblyDataVerifier.countryService.method.then((res)=> console.log(res))
-
-eg: verify bvn data method in Nigeria service
-
-premblyDataVerifier.ngService.bvn({ number: XXXX XXXX XXXX XXXX }).then((res) => console.log(res))
-
 
 //for radar, its different you have to create an instance of its own as follow:
 
@@ -97,6 +85,22 @@ You can access all the verification services from the prembly instance aside fro
 
 Each country service can be accessed by their acronym as follow:
 
+```ts
+import { DataVerificationService } from 'prembly-identitypass-sdk';
+
+//for data verification its different you have to create an instance of its own as follow:
+
+const premblyDataVerifier = new DataVerificationService(config)
+
+//after setting the config, you can access different country and their data verification service as shown:
+
+premblyDataVerifier.countryService.method.then((res)=> console.log(res))
+
+eg: verify bvn data method in Nigeria service
+
+premblyDataVerifier.ngService.bvn({ number: XXXX XXXX XXXX XXXX }).then((res) => console.log(res))
+```
+
 | Sn  | Country      | Acronym       |
 | --- | ------------ | ------------- |
 | 1   | Nigeria      | ngService     |
@@ -112,8 +116,8 @@ Each country service can be accessed by their acronym as follow:
 
 Each verification service can be accessed by their acronym as follow:
 
-| Sn  | Name         | Acronym          |
-| --- | ------------ | -------------    |
-| 1   | Biometric    | biometricService |
-| 2   | Document     | documentService  |
-| 3   | Global       | globalService    |
+| Sn  | Name      | Acronym          |
+| --- | --------- | ---------------- |
+| 1   | Biometric | biometricService |
+| 2   | Document  | documentService  |
+| 3   | Global    | globalService    |
