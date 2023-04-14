@@ -259,6 +259,9 @@ describe('Errors are handled', () => {
       const res = await verifyServices.ngService.votersCard({
         number: '987f545AJ67890',
         last_name: 'test',
+        first_name: 'test',
+        lga: 'Ikeja',
+        dob: '2000-01-18',
         state: 'Lagos',
       });
       expect(res).toHaveProperty('status', successCode);

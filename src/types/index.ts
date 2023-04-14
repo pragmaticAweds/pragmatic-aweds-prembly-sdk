@@ -93,8 +93,12 @@ export interface stampDutyParams
   > {}
 
 export interface votersCardParams
-  extends Pick<indexSignatureBaseParams, 'number' | 'last_name' | 'image'> {
+  extends Pick<
+    indexSignatureBaseParams,
+    'number' | 'last_name' | 'image' | 'first_name' | 'dob'
+  > {
   state: string;
+  lga: string;
 }
 
 export interface ninParams extends Pick<indexSignatureBaseParams, 'number'> {
